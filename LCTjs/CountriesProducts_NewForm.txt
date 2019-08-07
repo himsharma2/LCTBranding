@@ -1,0 +1,608 @@
+﻿<script language="javascript" src="/SiteAssets/jquery.min.js" type="text/javascript"></script>
+
+<script language="javascript" src="/SiteAssets/jquery-1.6.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript" src="/SiteAssets/jquery.SPServices-0.7.2.min.js"></script>
+
+<script>
+function isIE(){ 
+	 var ua = window.navigator.userAgent;
+
+  // test values
+  // IE 10
+  //ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+  // IE 11
+  //ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+  // IE 12 / Spartan
+  //ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+  
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    // IE 12 => return version number
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+}
+
+//Purpose:- Triger the validation event 
+// Call the function ValidateForm()
+// <Success> Save the Record
+// <Faliure> Donot save the record display the Error message
+$(document).ready(function(){
+	
+	$("input[id$='IOSaveItem']").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+	     $(this).attr("onclick", "");
+	     $(this).click(function(){
+		     //alert("Custom Click");
+		     var NoError = ValidateForm();
+		     if( NoError == true){
+		     	//call sharepoint click handler
+		     	eval(" ( function () {" + saveEvent + " })();");
+		     }
+		     
+	     });
+	});
+	
+	$("Ribbon.ListForm.Edit.Commit.Publish-Large").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+	     $(this).attr("onclick", "");
+	     	     $(this).click(function(){
+		     //alert("Custom Click");
+		     var NoError = ValidateForm();
+		     if( NoError == true){
+		     	//call sharepoint click handler
+		     	eval(" ( function () {" + saveEvent + " })();");
+		     }		     
+	     });
+	});
+
+});
+
+//Purpose:- to Check if the product - country combination is present or not 
+
+var errorSummaryMessage = '';
+function checkProductCountryCombination(Country,productSelection){
+var returnvalue = true;
+
+//alert(productSelection.text());
+var productSelectionVal =  productSelection.val() ;
+var productSelectionText = productSelection.text();
+var CountrySelectionVal =  Country.val() ;
+var CountrySelectionText = Country.text();
+
+
+//alert(productSelectionText);
+//alert(CountrySelectionText);
+//alert(Country.text());
+//PrdCntrCombinationFlag  = "0";
+
+var camlQueryStr = "<Query><Where><And><Eq><FieldRef Name='Country' LookupId='TRUE'/><Value Type='Lookup'>"+CountrySelectionVal+"</Value></Eq><Eq><FieldRef Name='Product' LookupId='TRUE'/> <Value Type='Lookup'>"+productSelectionVal+"</Value></Eq></And></Where></Query>"; 
+$().SPServices({
+	operation: "GetListItems",
+	async: false,
+	listName: "Countries Products",
+	CAMLQuery: camlQueryStr ,
+	completefunc:function (xData, Status) { 
+	 //alert(xData.responseText); 
+	 $(xData.responseXML).SPFilterNode("z:row").each(function(){
+	 	//PrdCntrCombinationFlag  = PrdCntrCombinationFlag  + 1;
+	 	errorSummaryMessage = errorSummaryMessage  + "<br>An entry for the Product Country combination "+productSelectionText+" :"+CountrySelectionText +" is already present<br>";
+	 	//alert("An entry for the Product "+productSelectionText+" and Country "+CountrySelectionText +" is already present, Kindly select a different one");
+		returnvalue = false;
+	 });
+	}
+});
+
+return returnvalue ;
+}
+
+
+//Purpose:- Validate the form 
+// Output :- 
+// <Success> Return NoError = true
+// <Faliure> Return NoError = false
+function ValidateForm(){
+	var ErrorMessage='';
+	var NoError = true;
+	var ProductSelector,ProductSpanSelector ;
+	if(isIE() == 7){
+		ProductSelector = "select[title$='tempDDLName_Product'] option:selected";
+		ProductSpanSelector = "select[title$='tempDDLName_Product']";
+	}
+	
+	if(isIE() >= 8){
+		ProductSelector = "select[title$='Product'] option:selected";
+		ProductSpanSelector = "select[title$='Product']";
+	}
+
+	
+	// Reset the error message in case some error message is already displayed
+	$("span[id$='tempDDLName_Product']").hide();
+	$("span[id$='Countries selected values']").hide();
+	$("span[id$='Product Trade Name']").hide();
+	$("span[id$='MAH Or Licensee']").hide();
+	$("span[id$='Marketing Authorization Number']").hide();
+	$("span[id$='PrdCmberrorMsg']").hide();
+	
+
+	//Validation if no product is selected
+	//if($("select[title$='tempDDLName_Product'] option:selected").val() == 0){
+	if($(ProductSelector).val() == 0){
+		ErrorMessage = "<BR><SPAN id='tempDDLName_Product' class=ms-formvalidation><SPAN role=alert>Please select a product.</SPAN></SPAN>";
+		// Check if the span with the id is already created or not
+		// if created append the Error message to the span 
+		// else create a span
+		
+		if($("span[id$='tempDDLName_Product']").length != 0){
+			$("span[id$='tempDDLName_Product']").show();	
+		}
+		else{
+			//$("select[title$='tempDDLName_Product']").parent('span').append(ErrorMessage);
+			$(ProductSpanSelector).parent('span').append(ErrorMessage);
+		
+		}
+		NoError = false;
+	}
+
+	//Validation if no Country is selected	
+	if($("select[title$='Countries selected values'] option").length == 0){
+		ErrorMessage = "<BR><SPAN id='Countries selected values' class=ms-formvalidation><SPAN role=alert>Please select a country.</SPAN></SPAN>";
+		// Check if the span with the id is already created or not
+		// if created append the Error message to the span 
+		// else create a span
+		if($("span[id$='Countries selected values']").length != 0){
+			$("span[id$='Countries selected values']").show();	
+		}
+		else{
+			$("select[title$='Countries selected values']").closest('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	//alert($("input[title$='Product Trade Name']").val().length);
+	//Validation if no entry is made
+	if($("input[title$='Product Trade Name']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='Product Trade Name' class=ms-formvalidation><SPAN role=alert>Please enter Product Trade Name.</SPAN></SPAN>";
+		if($("span[id$='Product Trade Name']").length != 0){
+			$("span[id$='Product Trade Name']").show();
+		}
+		else{
+			$("input[title$='Product Trade Name']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	//alert($("input[title$='MAH Or Licensee']").val().length);
+	//Validation if no entry is made
+	if($("input[title$='MAH Or Licensee']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='MAH Or Licensee' class=ms-formvalidation><SPAN role=alert>Please enter MAH Or Licensee.</SPAN></SPAN>";
+		if($("span[id$='MAH Or Licensee']").length != 0){
+			$("span[id$='MAH Or Licensee']").show();
+		}
+		else{
+			$("input[title$='MAH Or Licensee']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	//alert($("input[title$='Marketing Authorization Number']").val().length);
+	//Validation if no entry is made	
+	if($("input[title$='Marketing Authorization Number']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='Marketing Authorization Number' class=ms-formvalidation><SPAN role=alert>Please enter Marketing Authorization Number.</SPAN></SPAN>";
+		if($("span[id$='Marketing Authorization Number']").length != 0){
+			$("span[id$='Marketing Authorization Number']").show();
+		}
+		else{
+			$("input[title$='Marketing Authorization Number']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	
+	
+	// Validation if Product-Country Combination is already present
+	//if($("select[title$='tempDDLName_Product'] option:selected").val() != 0 && $("select[title$='Countries selected values'] option").length != 0){
+	if($(ProductSelector).val() != 0 && $("select[title$='Countries selected values'] option").length != 0){
+		var returnvalue, duplicateflag;
+		duplicateflag = false;
+		//var productSelection= $("select[title$='tempDDLName_Product'] option:selected");
+		var productSelection= $(ProductSelector);
+		errorSummaryMessage = '';
+		$("select[title$='Countries selected values'] option").each(function(){
+			var Country= $(this);
+
+			returnvalue = checkProductCountryCombination(Country,productSelection);
+
+			if(returnvalue == false){
+				duplicateflag = true;
+			}			
+		});
+
+		if(duplicateflag == true){
+
+				if($("span[id$='PrdCmberrorMsg']").length == 0){
+					errorSummaryMessage = "<SPAN id='PrdCmberrorMsg' class=ms-formvalidation ><SPAN role=alert>"+ errorSummaryMessage+ "</SPAN></SPAN>";
+					$("select[title$='Countries selected values']").closest('span').append(errorSummaryMessage);
+				}
+				else if($("span[id$='PrdCmberrorMsg']").length == 1){
+					$("span[id$='PrdCmberrorMsg']").html('').prepend(errorSummaryMessage);
+				}
+				
+				$("span[id$='PrdCmberrorMsg']").show();
+				NoError = false;		
+		}
+	}
+	
+	return NoError;
+}
+
+//Purpose:- Supress the tooltip from the dropdown input type (Country, Product, Dependent of Country)
+function NoToolTip(){
+	$("[id^=tempDDLName]").each(function () {
+                $(this).hover(function () {
+                    // Get the current title
+                    var title = $(this).attr("title");
+                    // Store it in a temporary attribute
+                    $(this).attr("tmp_title", title);
+                    // Set the title to nothing so we don't see the tooltips
+                    $(this).attr("title", "");
+                });
+                $(this).click(function () {
+                    // Retrieve the title from the temporary attribute
+                    var title = $(this).attr("tmp_title");
+                    // Return the title to what it was
+                    $(this).attr("title", title);
+                });
+                $(this).next('span').hover(function () {
+                    // Get the current title
+                    var title = $(this).attr("title");
+                    // Store it in a temporary attribute
+                    $(this).attr("tmp_title", title);
+                    // Set the title to nothing so we don't see the tooltips
+                    $(this).attr("title", "");
+                });
+                $(this).next('span').click(function () {
+                    // Retrieve the title from the temporary attribute
+                    var title = $(this).attr("tmp_title");
+                    // Return the title to what it was
+                    $(this).attr("title", title);
+                });
+                
+            }); 
+
+}
+
+ 
+var PageName;
+var ProductValOnLoad ;
+var CountryValOnLoad;
+var selector = "[id$='lkCountry']";
+// Purpose:- to hide the required feild and the un-used feilds
+$(document).ready(function(){
+
+	var PathName = window.location.pathname;
+	var splitPathName = PathName.split('/');
+	PageName = splitPathName[3];
+	//alert(PageName);
+	// On page load Hide the Controls 1. Dependent of Country & Region 2.  Member of region
+	$('nobr:contains("Dependent Of Country")').closest('tr').hide();
+	$('nobr:contains("Dependent Of Region")').closest('tr').hide();
+	$('nobr:contains("Member of Region")').closest('tr').hide();
+	
+	// Hide the controls not required in the form
+	$('nobr:contains("CountrySrc")').closest('tr').hide();
+	$('nobr:contains("Affiliate")').closest('tr').hide();
+	$('nobr:contains("ROW Country")').closest('tr').hide();
+	$('nobr:contains("CountryFlag")').closest('tr').hide();
+	$('nobr:contains("Country")').closest('tr').hide();
+
+	// Rename the Countries section
+	$('nobr:contains("Countries")').html("Country <SPAN class=ms-formvalidation title='This is a required field.'> *</SPAN>");
+	
+
+});
+
+// Purpose:- Add Change event for the following dropdown
+// Dependents?
+// Region Member Country ?
+// Dependent on Region
+// Dependent on Country
+// Trigger the Change event for "Region Memeber Country"
+
+$(document).ready(function(){
+
+	$("input[title$='Dependent on Country']").change(function()
+	{
+		var checked_status = this.checked;
+		if(checked_status == true) {
+		
+		$('nobr:contains("Dependent Of Country")').closest('tr').show();			
+		
+		
+		}
+		else { 
+		
+		
+		$('nobr:contains("Dependent Of Country")').closest('tr').hide();
+		
+		}
+	}); 
+	
+	
+	
+	$("input[title$='Dependent on Region']").change(function()
+	{
+	            var checked_status = this.checked;
+	            if(checked_status == true) {
+			
+			$('nobr:contains("Dependent Of Region")').closest('tr').show();			
+			
+			
+	            }
+	            else { 
+	
+	
+			$('nobr:contains("Dependent Of Region")').closest('tr').hide();
+	
+	           }
+	}); 
+	
+	
+	$("input[title$='Region Member Country ?']").change(function()
+	{
+	            var checked_status = this.checked;
+	            if(checked_status == true) {
+			
+			$('nobr:contains("Member of Region")').closest('tr').show();
+			$('nobr:contains("Dependent ?")').closest('tr').hide();			
+			
+			
+	            }
+	            else { 
+	
+	
+			$('nobr:contains("Member of Region")').closest('tr').hide();
+			$('nobr:contains("Dependent ?")').closest('tr').show();	
+	
+	           }
+	}); 
+
+	var selectedVal= $("*[title='Dependent ?']");
+	selectedVal.change(function () {
+		var strPredefinedTask = "";
+		$("#" + selectedVal.attr("id") + " option:selected").each(function (){
+			strPredefinedTask += $(this).text();
+			
+			if(strPredefinedTask=="Country")		
+	        {	
+				$('nobr:contains("Region Member Country ?")').closest('tr').hide();
+				$('nobr:contains("Member of Region")').closest('tr').hide();	
+				
+				$('nobr:contains("Dependent Of Country")').closest('tr').show();
+				$('nobr:contains("Dependent Of Region")').closest('tr').hide();
+	
+	        }
+	
+			if(strPredefinedTask=="Region")
+			{
+				$('nobr:contains("Region Member Country ?")').closest('tr').hide();
+				$('nobr:contains("Member of Region")').closest('tr').hide();
+				$('nobr:contains("Dependent Of Country")').closest('tr').hide();
+				$('nobr:contains("Dependent Of Region")').closest('tr').show();	
+			
+			}
+	
+			if(strPredefinedTask=="N/A")
+			{
+				$('nobr:contains("Region Member Country ?")').closest('tr').show();
+		
+				$('nobr:contains("Dependent Of Country")').closest('tr').hide();
+				$('nobr:contains("Dependent Of Region")').closest('tr').hide();		
+			
+			}
+		});
+	});
+	
+	// Display the checkbox "Region Member Country ?" by Forcefully triggering change event	
+	if($("*[title='Dependent ?']").val()== "N/A"){
+		$("*[title='Dependent ?']").trigger("change");
+	}	
+
+
+});
+
+//Purpose:- Assign the COuntriesin Europeian region on Selected Countyr region
+function addChoice(text,columnName) {
+    $("[title='" + columnName + " possible values'] option").each(function () {
+		 //$(this).remove(); 
+        if ($(this).text() == text) {
+            $(this).appendTo($("[title='" + columnName + " selected values']"));            
+            var multilookupPickerVal = $(selector).val();
+            if ($(selector).val() == undefined || $(selector).val().length == 0) {
+                $(selector).val($(this).val() + "|t" + $(this).text());
+            }
+            else {
+                $(selector).val(multilookupPickerVal + "|t" + $(this).val() + "|t" + $(this).text());
+            }
+        }
+    });
+}
+
+
+// Purpose:- populate Countries in Europian Region countries on page load
+$(document).ready(function(){
+	// Fetch the countries associated with Country:- List Name Countries
+	var camlQueryStr = "<Query><Where><Eq><FieldRef Name='EuropeanCountry' /> <Value Type='Integer'>1</Value></Eq></Where></Query>";
+	$().SPServices({
+		operation: "GetListItems",
+		async: false,
+		CAMLQuery: camlQueryStr ,
+		listName: "Countries",
+		completefunc: function (xData, Status) { 
+			//alert(xData.responseText);
+			$(xData.responseXML).SPFilterNode("z:row").each(function() {
+				var countryName = $(this).attr("ows_CountryName");			
+				var columnName = 'Countries';
+				addChoice(countryName,columnName);
+			});
+		} 
+	});
+
+}); 
+
+// Code convertComplex dropdown to simple dropdown
+// From here
+var DisableComplexDropdowns = new Object();
+	DisableComplexDropdowns.FixDropdowns = function () {
+    $('.ms-lookuptypeintextbox').each(function () {
+        DisableComplexDropdowns.OverrideDropDownList($(this).attr('title'));
+    });
+ 
+}
+ 
+
+DisableComplexDropdowns.OverrideDropDownList = function (columnName) {
+    // Construct a drop down list object
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+ 
+    // Do this only in complex mode...
+    if (lookupDDL.Type == "C") {
+        // Hide the text box and drop down arrow
+        lookupDDL.Obj.css('display', 'none');
+        lookupDDL.Obj.next("img").css('display', 'none');
+ 
+        // Construct the simple drop down field with change trigger
+        var tempDDLName = "tempDDLName_" + columnName;
+        if (lookupDDL.Obj.parent().find("select[ID='" + tempDDLName + "']").length == 0) {
+            lookupDDL.Obj.parent().append('<select id="' + tempDDLName + '" name="' + tempDDLName + '" title="' + tempDDLName + '"></select>');
+ 
+            var newDDL = lookupDDL.Obj.parent().find("select[ID='" + tempDDLName + "']");
+            $(newDDL).bind("change", function () {
+                DisableComplexDropdowns.updateOriginalField(columnName);
+            });
+        }
+ 
+        DisableComplexDropdowns.updateNewField(columnName);
+    }
+};
+ 
+// method to update the original and hidden field.
+DisableComplexDropdowns.updateOriginalField = function (columnName) {
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+    var newLookupDDL = new DisableComplexDropdowns.DropDownList("tempDDLName_" + columnName);
+ 
+    // Set the text box
+    if (lookupDDL.Obj.val() != newLookupDDL.Obj.find("option:selected").text())
+        lookupDDL.Obj.val(newLookupDDL.Obj.find("option:selected").text());
+ 
+    // Get Hidden ID
+    var hiddenId = lookupDDL.Obj.attr("optHid");
+ 
+    // Update the hidden variable
+    if ($('input[name=' + hiddenId + ']').val() != newLookupDDL.Obj.find("option:selected").val())
+        $('input[name=' + hiddenId + ']').val(newLookupDDL.Obj.find("option:selected").val());
+};
+ 
+//Call this method from the completefunc in SPServices.SPCascadeDropdowns like so:
+//completefunc: function(){
+//                if (typeof DisableComplexDropdowns != "undefined" && typeof DisableComplexDropdowns.updateNewField != 'undefined') {
+//                    DisableComplexDropdowns.updateNewField(controlTitle);
+//                };}
+DisableComplexDropdowns.updateNewField = function (columnName) {
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+    var newLookupDDL = new DisableComplexDropdowns.DropDownList("tempDDLName_" + columnName);
+ 
+    if (newLookupDDL == null)
+        return;
+ 
+    // Get all the options
+    var splittedChoices = lookupDDL.Obj.attr('choices').split("|");
+ 
+    //If this is a required field, leave a "null" option at the top so that nothing is pre-selected
+    if (splittedChoices[1] != "0") {
+        splittedChoices.unshift("Please Select ", "0");
+    }
+ 
+    //Determine if the dropdowns are the same. If so, return without changing anything
+    var i = 1;
+    var different = false;
+    newLookupDDL.Obj.children().each(function () {
+        if ((i + 1) > splittedChoices.length) //Current dropdown has more items than the old dropdown
+            different = true;
+        if ($(this).val() != splittedChoices[i])
+            different = true;
+        i++;
+        i++;
+    });
+ 
+    if (!different && (i - 1) == splittedChoices.length)
+        return;
+ 
+    // get selected value
+    var hiddenVal = $('input[name=' + lookupDDL.Obj.attr("optHid") + ']').val()
+    if (hiddenVal == "0") {
+        hiddenVal = lookupDDL.Obj.attr("value")
+    }
+ 
+    newLookupDDL.Obj.children().each(function () {
+        $(this).remove();
+    });
+ 
+    // Populate the drop down list
+    for (var i = 0; i < splittedChoices.length; i++) {
+        var optionVal = splittedChoices[i];
+        i++;
+        var optionId = splittedChoices[i];
+ 
+        var selected = (optionId == hiddenVal) ? " selected='selected'" : "";
+        newLookupDDL.Obj.append('<option ' + selected + ' value="' + optionId + '">' + optionVal + '</option>');
+    }
+   	
+   	// Supress the tooltip 
+	//NoToolTip();
+
+};
+ 
+// just to construct a drop down box object. Idea token from SPServces
+DisableComplexDropdowns.DropDownList = function (colName) {
+    // Simple - when they are less than 20 items
+    if ((this.Obj = $("select[Title='" + colName + "']")).html() != null) {
+        this.Type = "S";
+        // Compound - when they are more than 20 items
+    } else if ((this.Obj = $("input[Title='" + colName + "']")).html() != null) {
+        this.Type = "C";
+        // Multi-select: This will find the multi-select column control on English and most other languages sites where the Title looks like 'Column Name possible values'
+    } else if ((this.Obj = $("select[ID$='SelectCandidate'][Title^='" + colName + " ']")).html() != null) {
+        this.Type = "M";
+        // Multi-select: This will find the multi-select column control on a Russian site (and perhaps others) where the Title looks like 'Выбранных значений: Column Name'
+    } else if ((this.Obj = $("select[ID$='SelectCandidate'][Title$=': " + colName + "']")).html() != null) {
+        this.Type = "M";
+    } else
+        this.Type = null;
+}; // End of function dropdownCtl
+ 
+if (typeof $ != 'undefined') {
+    $(function () {
+    
+        DisableComplexDropdowns.FixDropdowns();
+    });
+}
+
+// Till Here
+</script>
+
+
+
+  
+

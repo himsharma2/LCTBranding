@@ -1,0 +1,116 @@
+<script src = "/SiteAssets/jquery.SPServices-0.7.2.min.js" ></script>
+ <script type = "text/javascript">
+
+	jQuery(document).ready(function () {
+		var homePageUrl;
+		if (_spPageContextInfo.webServerRelativeUrl == '/')
+			homePageUrl = "/_vti_bin/listdata.svc/ConfigList?$select= Title,Value&$filter=Title eq 'ROWAccessGroup'";
+		else
+			homePageUrl = _spPageContextInfo.webServerRelativeUrl + "/_vti_bin/listdata.svc/ConfigList?$select= Title,Value&$filter=Title eq 'ROWAccessGroup'";
+
+		$.ajax({
+			url : homePageUrl,
+			method : "GET",
+			headers : {
+				"accept" : "application/json;odata=verbose"
+			},
+			success : function (data) {
+				if (data.d.results) {
+					$().SPServices({
+						operation : "GetGroupCollectionFromUser",
+						userLoginName : $().SPServices.SPGetCurrentUser(),
+						async : false,
+						completefunc : function (xData, Status) {
+
+							//Check for LCTAdmin to show Implementaion Task
+							if ($(xData.responseXML).find("Group[Name='" + data.d.results[0].Value + "']").length == 1) {
+								//check if LCID in query string is non-ROW to display Implementation Task webpart
+								if (window.location.href.slice(window.location.href.indexOf('?') + 1).split('-').length == 3) {
+									//$('.s4-wpTopTable').each(function(i){if(i==4){$(this).show()}});
+									//Hide the parent table which is having  the text 'Implementation Tasks'
+									$(".s4-wpTopTable table td:contains('Implementation Tasks')").each(function () {
+										$(this).parents("table:first").parents("table:first").show();
+									});
+								}
+
+							}
+							// Hide the Implementation Task Status Grid when its a ROW request
+							if (window.location.href.slice(window.location.href.indexOf('?') + 1).split('-').length == 4) {
+								//Hide the parent table which is having  the text 'Implementation Tasks'
+								$(".s4-wpTopTable table td:contains('Implementation Tasks')").each(function () {
+									$(this).parents("table:first").parents("table:first").hide();
+
+								});
+								isRegionHide = true;
+								HideRegionColumn();
+							}
+						}
+					});
+				}
+				$("#ctl00_MSO_ContentDiv").show();
+			},
+			error : function (err) {
+				alert('error:' + JSON.stringify(err));
+				$("#ctl00_MSO_ContentDiv").show();
+			}
+		});
+
+	});
+
+//ExecuteOrDelayUntilScriptLoaded(ApplyFormat, "core.js");
+
+var isRegionHide = false;
+$(document).ready(function () {
+	
+	if (window.location.href.slice(window.location.href.indexOf('?') + 1).split('-').length == 4) {
+	
+	HideRegionColumn();
+	}
+	 ScriptLoadCompleted();
+	 setTimeout(ScriptLoadCompleted,1000);
+	setTimeout(ScriptLoadCompleted,2000);
+});
+
+function ScriptLoadCompleted() {
+	if ($(".ms-viewheadertr").find("a:contains('Market')").length > 0) {
+			var tag = $(".ms-viewheadertr").find("a:contains('Market')");
+		tag[0].click();
+		}
+}
+
+Sys.Application.add_init(appl_init);
+  function appl_init() {
+               var pagegReqManager = Sys.WebForms.PageRequestManager.getInstance();
+               pagegReqManager.add_endRequest(EndHandler);
+          }
+ 
+  function EndHandler() {
+             HideRegionColumn();
+          } 
+
+
+function HideRegionColumn() {
+		$("table[Summary='Label Update Approval Tasks ']").each(function () {
+		var i = $(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').index();
+		if (typeof(i) != 'undefined') {
+			$(this).find("tr").each(function () {
+				$(this).find("td:eq(" + i + ")").hide();
+			});
+		}
+		$(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').hide();
+	});
+		
+		if(isRegionHide)
+		{
+	$("table[Summary='Label Update Approval Tasks ']").each(function () {
+		var i = $(this).find(".ms-viewheadertr .ms-vh2 table[Name='Region']").closest('th').index();
+		if (typeof(i) != 'undefined') {
+			$(this).find("tr").each(function () {
+				$(this).find("td:eq(" + i + ")").hide();
+			});
+		}
+		$(this).find(".ms-viewheadertr .ms-vh2 table[Name='Region']").closest('th').hide();
+	});
+	}
+}		  
+</script>

@@ -1,0 +1,463 @@
+﻿<script language="javascript" src="/SiteAssets/jquery.min.js" type="text/javascript"></script>
+
+<script language="javascript" src="/SiteAssets/jquery-1.6.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript" src="/SiteAssets/jquery.SPServices-0.7.2.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+
+$('nobr:contains("RegionSrc")').closest('tr').hide();
+$('nobr:contains("Affiliate")').closest('tr').hide();
+
+var strRegion = $("option:selected", $("select[title='Region']")).text();
+
+if(strRegion != '(None)'){
+
+		$("input[title='RegionSrc']").val(strRegion);
+		var associatedAffiliateGroup = $().SPFindPeoplePicker({
+	        peoplePickerDisplayName: "Affiliate Group",
+	        valueToSet: strRegion
+	    });
+	        //alert(associatedAffiliateGroup);
+		var chooseRegionDropdown =   $("*[title='Region']");
+	    chooseRegionDropdown.change(function () {
+	         
+				 var strRegion = "";
+	    $("#" + chooseRegionDropdown.attr("id") + " option:selected").each(function ()
+		 {
+	            
+			strRegion += $(this).text();
+		
+			//strRegion1=this.value;
+	
+	     });
+		//alert(strRegion);
+		$("input[title='RegionSrc']").val(strRegion);
+	    var associatedAffiliateGroup = $().SPFindPeoplePicker({
+	    peoplePickerDisplayName: "Affiliate Group",
+	    valueToSet: strRegion
+	    });
+	        //alert(associatedAffiliateGroup);
+	}); 
+	
+
+}
+
+
+}); 
+
+/***** Added By WinWire on 26th May 2015 *****/
+function isIE(){ 
+	 var ua = window.navigator.userAgent;
+
+  // test values
+  // IE 10
+  //ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+  // IE 11
+  //ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+  // IE 12 / Spartan
+  //ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+  
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    // IE 12 => return version number
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+}
+
+//Purpose:- Triger the validation event 
+// Call the function ValidateForm()
+// <Success> Save the Record
+// <Faliure> Donot save the record display the Error message
+$(document).ready(function(){
+	
+	if(isIE() >= 8){
+		//ProductSpanSelector = "select[title$='Product']";
+		// Add Blank Value to product Drodpown
+		ProductLookupValue=$("select[title='Product']").prepend("<option value='0' ></option>");
+		$("select[title='Product']").val("0");
+	}
+	
+	$("input[id$='IOSaveItem']").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+	     $(this).attr("onclick", "");
+	     $(this).click(function(){
+		     //alert("Custom Click");
+		     var NoError = ValidateForm();
+		     if( NoError == true){
+		     	//call sharepoint click handler
+		     	eval(" ( function () {" + saveEvent + " })();");
+		     }
+		     
+	     });
+	});
+	
+	$("Ribbon.ListForm.Edit.Commit.Publish-Large").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+	     $(this).attr("onclick", "");
+	     	     $(this).click(function(){
+		     //alert("Custom Click");
+		     var NoError = ValidateForm();
+		     if( NoError == true){
+		     	//call sharepoint click handler
+		     	eval(" ( function () {" + saveEvent + " })();");
+		     }		     
+	     });
+	});
+
+});
+
+var errorSummaryMessage = '';
+function checkProductRegionCombination(Region,productSelection){
+var returnvalue = true;
+
+var productSelectionVal =  productSelection.val() ;
+var productSelectionText = productSelection.text();
+var RegionSelectionVal =  Region.val() ;
+var RegionSelectionText = Region.text();
+
+
+var camlQueryStr = "<Query><Where><And><Eq><FieldRef Name='Region' LookupId='TRUE'/><Value Type='Lookup'>"+RegionSelectionVal+"</Value></Eq><Eq><FieldRef Name='Product' LookupId='TRUE'/> <Value Type='Lookup'>"+productSelectionVal+"</Value></Eq></And></Where></Query>"; 
+$().SPServices({
+	operation: "GetListItems",
+	async: false,
+	listName: "Regions Products",
+	CAMLQuery: camlQueryStr ,
+	completefunc:function (xData, Status) { 
+	var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");
+	if(itemCount >= 1){
+		 //$(xData.responseXML).SPFilterNode("z:row").each(function(){
+		 	errorSummaryMessage = errorSummaryMessage  + "<br>An entry for the Regions Product combination "+productSelectionText+":"+RegionSelectionText +" is already present<br>";
+		 	returnvalue = false;
+		 //});
+	 }
+	}
+});
+
+return returnvalue ;
+}
+
+//Purpose:- Validate the form 
+// Output :- 
+// <Success> Return NoError = true
+// <Faliure> Return NoError = false
+function ValidateForm(){
+	var ErrorMessage='';
+	var NoError = true;
+	var ProductSelector,ProductSpanSelector ;
+	if(isIE() == 7){
+		ProductSelector = "select[title$='tempDDLName_Product'] option:selected";
+		ProductSpanSelector = "select[title$='tempDDLName_Product']";
+	}
+	
+	if(isIE() >= 8){
+		ProductSelector = "select[title$='Product'] option:selected";
+		ProductSpanSelector = "select[title$='Product']";
+	}
+
+	
+	// Reset the error message in case some error message is already displayed
+	$("span[id$='tempDDLName_Product']").hide();
+	$("span[id$='Regions selected values']").hide();
+	$("span[id$='PrdCmberrorMsg']").hide();
+	$("span[id$='Product Trade Name']").hide();
+	$("span[id$='MAH Or Licensee']").hide();
+	$("span[id$='Marketing Authorization Number']").hide();
+	$("span[id$='Approval Process Type']").hide();
+	//Validation if no product is selected
+	if($(ProductSelector).val() == 0){
+	ErrorMessage = "<BR><SPAN id='tempDDLName_Product' class=ms-formvalidation><SPAN role=alert>Please select a Product.</SPAN></SPAN>";
+		// Check if the span with the id is already created or not
+		// if created append the Error message to the span 
+		// else create a span
+		
+		if($("span[id$='tempDDLName_Product']").length != 0){
+		$("span[id$='tempDDLName_Product']").show();	
+		}
+		else{
+			$(ProductSpanSelector).parent('span').append(ErrorMessage);
+		
+		}
+		NoError = false;
+	}
+	
+	//Validation if no Region is selected	
+	if($("select[title$='Regions selected values'] option").length == 0){
+		ErrorMessage = "<BR><SPAN id='Regions selected values' class=ms-formvalidation><SPAN role=alert>Please select a Region.</SPAN></SPAN>";
+		// Check if the span with the id is already created or not
+		// if created append the Error message to the span 
+		// else create a span
+		if($("span[id$='Regions selected values']").length != 0){
+			$("span[id$='Regions selected values']").show();	
+		}
+		else{
+			$("select[title$='Regions selected values']").closest('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	
+	//alert($("input[title$='Product Trade Name']").val().length);
+	//Validation- Product Trade Name - if no entry is made
+	if($("input[title$='Product Trade Name']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='Product Trade Name' class=ms-formvalidation><SPAN role=alert>You must specify Product Trade Name.</SPAN></SPAN>";
+		if($("span[id$='Product Trade Name']").length != 0){
+			$("span[id$='Product Trade Name']").show();
+		}
+		else{
+			$("input[title$='Product Trade Name']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	//alert($("input[title$='MAH Or Licensee']").val().length);
+	//Validation- MAH Or Licensee -  if no entry is made
+	if($("input[title$='MAH Or Licensee']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='MAH Or Licensee' class=ms-formvalidation><SPAN role=alert>You must specify MAH Or Licensee.</SPAN></SPAN>";
+		if($("span[id$='MAH Or Licensee']").length != 0){
+			$("span[id$='MAH Or Licensee']").show();
+		}
+		else{
+			$("input[title$='MAH Or Licensee']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	//alert($("input[title$='Marketing Authorization Number']").val().length);
+	//Validation- Marketing Authorization Number - if no entry is made	
+	if($("input[title$='Marketing Authorization Number']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='Marketing Authorization Number' class=ms-formvalidation><SPAN role=alert>You must specify Marketing Authorization Number.</SPAN></SPAN>";
+		if($("span[id$='Marketing Authorization Number']").length != 0){
+			$("span[id$='Marketing Authorization Number']").show();
+		}
+		else{
+			$("input[title$='Marketing Authorization Number']").parent('span').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	
+	
+	//Validation- Approval Process Type - if no entry is made	
+	if($("select[title='Approval Process Type']").val().length == 0){
+		ErrorMessage = "<BR><SPAN id='Approval Process Type' class=ms-formvalidation><SPAN role=alert>You must specify Approval Process Type.</SPAN></SPAN>";
+		if($("span[id$='Approval Process Type']").length != 0){
+			$("span[id$='Approval Process Type']").show();
+		}
+		else{
+			$("select[title$='Approval Process Type']").parent('span').append(ErrorMessage);
+			$("select[title$='Approval Process Type']").parent('td').append(ErrorMessage);
+		}
+		NoError = false;
+	}
+	// Validation if Product-Region Combination is already present
+	if($(ProductSelector).val() != 0 && $("select[title$='Regions selected values'] option").length != 0){
+		var returnvalue, duplicateflag;
+		duplicateflag = false;
+		var productSelection= $(ProductSelector);
+		errorSummaryMessage = '';
+		$("select[title$='Regions selected values'] option").each(function(){
+			var Region= $(this);
+
+			returnvalue = checkProductRegionCombination(Region,productSelection);
+
+			if(returnvalue == false){
+				duplicateflag = true;
+			}			
+		});
+
+		if(duplicateflag == true){
+
+				if($("span[id$='PrdCmberrorMsg']").length == 0){
+					errorSummaryMessage = "<SPAN id='PrdCmberrorMsg' class=ms-formvalidation ><SPAN role=alert>"+ errorSummaryMessage+ "</SPAN></SPAN>";
+					$("select[title$='Regions selected values']").closest('span').append(errorSummaryMessage);
+				}
+				else if($("span[id$='PrdCmberrorMsg']").length == 1){
+					$("span[id$='PrdCmberrorMsg']").html('').prepend(errorSummaryMessage);
+				}
+				
+				$("span[id$='PrdCmberrorMsg']").show();
+				NoError = false;		
+		}
+	}
+	
+	return NoError;
+}
+
+// Purpose:- to hide the required feild and the un-used feilds
+$(document).ready(function(){
+
+	var PathName = window.location.pathname;
+	var splitPathName = PathName.split('/');
+	PageName = splitPathName[3];
+	
+	// On page load Hide below Controls
+	
+	$('nobr:contains("Region")').each(function(){
+
+		if($(this).text() === "Region"){
+			$(this).closest('tr').hide();	
+		}
+	});
+	$('nobr:contains("Region Flag")').closest('tr').hide();
+	
+	// Rename the Countries section	
+	$('nobr:contains("Regions")').html("Region   <SPAN class=ms-formvalidation title='This is a required field.'>*</SPAN>");
+	// Rename Approval Process Type
+	$('nobr:contains("Approval Process Type")').html("Approval Process Type <SPAN class=ms-formvalidation title='This is a required field.'>*</SPAN>");
+	
+});
+
+// Code convertComplex dropdown to simple dropdown
+// From here
+var DisableComplexDropdowns = new Object();
+	DisableComplexDropdowns.FixDropdowns = function () {
+    $('.ms-lookuptypeintextbox').each(function () {
+        DisableComplexDropdowns.OverrideDropDownList($(this).attr('title'));
+    });
+ 
+}
+ 
+
+DisableComplexDropdowns.OverrideDropDownList = function (columnName) {
+    // Construct a drop down list object
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+ 
+    // Do this only in complex mode...
+    if (lookupDDL.Type == "C") {
+        // Hide the text box and drop down arrow
+        lookupDDL.Obj.css('display', 'none');
+        lookupDDL.Obj.next("img").css('display', 'none');
+ 
+        // Construct the simple drop down field with change trigger
+        var tempDDLName = "tempDDLName_" + columnName;
+        if (lookupDDL.Obj.parent().find("select[ID='" + tempDDLName + "']").length == 0) {
+            lookupDDL.Obj.parent().append('<select id="' + tempDDLName + '" name="' + tempDDLName + '" title="' + tempDDLName + '"></select>');
+ 
+            var newDDL = lookupDDL.Obj.parent().find("select[ID='" + tempDDLName + "']");
+            $(newDDL).bind("change", function () {
+                DisableComplexDropdowns.updateOriginalField(columnName);
+            });
+        }
+ 
+        DisableComplexDropdowns.updateNewField(columnName);
+    }
+};
+ 
+// method to update the original and hidden field.
+DisableComplexDropdowns.updateOriginalField = function (columnName) {
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+    var newLookupDDL = new DisableComplexDropdowns.DropDownList("tempDDLName_" + columnName);
+ 
+    // Set the text box
+    if (lookupDDL.Obj.val() != newLookupDDL.Obj.find("option:selected").text())
+        lookupDDL.Obj.val(newLookupDDL.Obj.find("option:selected").text());
+ 
+    // Get Hidden ID
+    var hiddenId = lookupDDL.Obj.attr("optHid");
+ 
+    // Update the hidden variable
+    if ($('input[name=' + hiddenId + ']').val() != newLookupDDL.Obj.find("option:selected").val())
+        $('input[name=' + hiddenId + ']').val(newLookupDDL.Obj.find("option:selected").val());
+};
+ 
+//Call this method from the completefunc in SPServices.SPCascadeDropdowns like so:
+//completefunc: function(){
+//                if (typeof DisableComplexDropdowns != "undefined" && typeof DisableComplexDropdowns.updateNewField != 'undefined') {
+//                    DisableComplexDropdowns.updateNewField(controlTitle);
+//                };}
+DisableComplexDropdowns.updateNewField = function (columnName) {
+    var lookupDDL = new DisableComplexDropdowns.DropDownList(columnName);
+    var newLookupDDL = new DisableComplexDropdowns.DropDownList("tempDDLName_" + columnName);
+ 
+    if (newLookupDDL == null)
+        return;
+ 
+    // Get all the options
+    var splittedChoices = lookupDDL.Obj.attr('choices').split("|");
+ 
+    //If this is a required field, leave a "null" option at the top so that nothing is pre-selected
+    if (splittedChoices[1] != "0") {
+        splittedChoices.unshift(" ", "0");
+    }
+ 
+    //Determine if the dropdowns are the same. If so, return without changing anything
+    var i = 1;
+    var different = false;
+    newLookupDDL.Obj.children().each(function () {
+        if ((i + 1) > splittedChoices.length) //Current dropdown has more items than the old dropdown
+            different = true;
+        if ($(this).val() != splittedChoices[i])
+            different = true;
+        i++;
+        i++;
+    });
+ 
+    if (!different && (i - 1) == splittedChoices.length)
+        return;
+ 
+    // get selected value
+    var hiddenVal = $('input[name=' + lookupDDL.Obj.attr("optHid") + ']').val()
+    if (hiddenVal == "0") {
+        hiddenVal = lookupDDL.Obj.attr("value")
+    }
+ 
+    newLookupDDL.Obj.children().each(function () {
+        $(this).remove();
+    });
+ 
+    // Populate the drop down list
+    for (var i = 0; i < splittedChoices.length; i++) {
+        var optionVal = splittedChoices[i];
+        i++;
+        var optionId = splittedChoices[i];
+ 
+        var selected = (optionId == hiddenVal) ? " selected='selected'" : "";
+        newLookupDDL.Obj.append('<option ' + selected + ' value="' + optionId + '">' + optionVal + '</option>');
+    }
+   	
+   	// Supress the tooltip 
+	//NoToolTip();
+
+};
+ 
+// just to construct a drop down box object. Idea token from SPServces
+DisableComplexDropdowns.DropDownList = function (colName) {
+    // Simple - when they are less than 20 items
+    if ((this.Obj = $("select[Title='" + colName + "']")).html() != null) {
+        this.Type = "S";
+        // Compound - when they are more than 20 items
+    } else if ((this.Obj = $("input[Title='" + colName + "']")).html() != null) {
+        this.Type = "C";
+        // Multi-select: This will find the multi-select column control on English and most other languages sites where the Title looks like 'Column Name possible values'
+    } else if ((this.Obj = $("select[ID$='SelectCandidate'][Title^='" + colName + " ']")).html() != null) {
+        this.Type = "M";
+        // Multi-select: This will find the multi-select column control on a Russian site (and perhaps others) where the Title looks like 'Выбранных значений: Column Name'
+    } else if ((this.Obj = $("select[ID$='SelectCandidate'][Title$=': " + colName + "']")).html() != null) {
+        this.Type = "M";
+    } else
+        this.Type = null;
+}; // End of function dropdownCtl
+ 
+if (typeof $ != 'undefined') {
+    $(function () {
+    
+        DisableComplexDropdowns.FixDropdowns();
+    });
+}
+/****** END of WinWire code update *****/
+
+</script>

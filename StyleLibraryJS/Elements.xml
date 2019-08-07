@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="StyleLibraryJS" Url="Style Library" RootWebOnly="TRUE">
+    <File Path="StyleLibraryJS\ConditionalDisplayOfControl.js" Url="ConditionalDisplayOfControl.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="False" />
+    <File Path="StyleLibraryJS\jquery.js" Url="jquery.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="False" />
+    <File Path="StyleLibraryJS\LoadProducts.js" Url="LoadProducts.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="False" />
+</Module>
+</Elements>

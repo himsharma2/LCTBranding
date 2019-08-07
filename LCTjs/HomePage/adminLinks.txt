@@ -1,0 +1,24 @@
+
+<p>
+<a id="ceManageGroup" href="/_layouts/groups.aspx">Manage SharePoint Group</a> <br/><br/>
+<a id="ceAffiliate" href="/Lists/AffiliateGroups/AllItems.aspx">Manage Affiliate Group</a>
+<a id="ceCountries" href="/Lists/Countries/AllItems.aspx">Manage Countries</a><br/><br/>
+<a id="ceRegions" href="/Lists/Regions/AllItems.aspx">Manage Regions</a><br/><br/>
+<a id="ceProducts" href="/Lists/Products/AllItems.aspx">Manage Products</a> <br/><br/>
+<a id="ceRegionProducts" href="/Lists/RegionsProducts/AllItems.aspx">Manage Regions Products</a> <br/><br/>
+<a id="ceCountriesProducts" href="/Lists/CountriesProducts/AllItems.aspx">Manage Countries Products</a>
+<a id="ceTA" href="/Lists/TherapeuticAreas/AllItems.aspx">Manage Therapeutic Areas</a><br/><br/>
+<a id="ceTAAffiliate" href="/Lists/Therapeutic%20Area%20Region%20Affiliates/AllItems.aspx">Manage Therapeutic Area Region Affiliates</a><br/><br/>
+<a id="ceCancel" href="/Pages/CancelLabelChange.aspx">Cancel Label Change</a> <br/><br/>
+<a id="ceLabelWorkflows" href="/Lists/LabelUpdateWorkflows/Manage%20All%20Label%20Change%20Updates.aspx">Manage&#160;Label Changes</a><br/><br/>
+<a id="ceLabelApproval" href="/Lists/LabelUpdateApprovalTasks/Manage%20All%20Approval%20Tasks.aspx">Manage Approval Tasks</a> <br/><br/>
+<a id="ceImplementation" href="/Lists/LabelUpdateImplementationTasks/Manage%20All%20Implementation%20Tasks.aspx">Manage Implementation Tasks<br/></a><br/><br/>
+<a id="ceSubscription"href="/Lists/ProductSubscription/Product%20Subscription.aspx">Manage Product Subscription<br/></a><br/><br/>
+<a id="ceDueDates" href="/Lists/ManageDueDateAlerts/AllItems.aspx">Manage Due Date Alerts<br/></a><br/><br/>
+<a id="ceRowRegion" href="/Lists/ROWRegions/AllItems.aspx">Manage ROW Region<br/></a><br/><br/>
+</p>
+
+
+
+
+

@@ -1,0 +1,1578 @@
+﻿body {
+	font-size:12px !important;
+	color:#333333;
+}
+
+body #s4-leftpanel{
+	display:block;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border-color: #cccccc;
+}
+
+.s4-title {
+background:#ffffff;
+}
+.s4-title-inner td{
+padding:0px;
+margin:0px;
+height:inherit !important;
+}
+#cssmenu ul {
+	background:none;
+}
+#cssmenu li a:hover {
+	background:none;
+}
+#cssmenu li a {
+	background:none;
+	float:none;
+	padding:0px;
+}
+body #s4-topheader2 {
+	background:url('/Style Library/Images/LCTImages/top_nav_background.jpg') repeat-x;
+	border:0px solid red;
+	height:37px;
+}
+.s4-title {
+padding:0px;
+}
+#s4-mainarea {
+background:#fafafa;
+}
+body #s4-leftpanel-content{
+	background:none;
+	border:0px solid red;
+	width: inherit;
+	padding:0px;
+	margin:0px;
+}
+body #s4-leftpanel {
+width:240px;
+	
+}
+#s4-leftpanel .menu.vertical.menu-vertical>ul>li {
+background:#ffffff;
+border:1px solid #dddddd;
+margin-bottom:10px;
+}
+#s4-leftpanel .menu.vertical.menu-vertical>ul>li>a {
+color:#d02a42;
+font-size:14px;
+padding:5px;
+padding-left:24px;
+font-weight:bold;
+border-bottom:1px solid #dddddd;
+background:url('/Style Library/Images/LCTImages/gilead_icon.png') #eeeeee no-repeat 5px 6px;
+}
+.s4-ca {
+	margin-left:280px;
+}
+.s4-lp.s4-toplinks{
+	
+}
+#LeftSlide {
+	width:25px;
+	height:50px;
+	display:inline-block;
+	background:maroon;
+	margin-top:20px;
+}
+#s4-leftpanel {
+	display:none;
+}
+.s4-titletable {
+	background:#ffffff;
+}
+#s4-topheader2 ul.static a{
+	border:0px solid red;
+	padding:5px 15px 9px 15px;
+}
+BODY #s4-topheader2 {
+	display:block;
+}
+BODY #s4-topheader2 .menu-horizontal {
+padding-top:8px;
+	
+}
+.s4-toplinks .s4-tn a {
+	font-size:14px;
+	color:#ffffff;
+	width:90px;
+	text-align:center;
+}
+.s4-tn li.static > .menu-item {
+	color:#ffffff;
+}
+
+.s4-toplinks .s4-tn a.selected {
+	background:#fafafa;
+	background-image:none;
+	color:#d02a42;
+}
+#LeftSlide {
+	float:left;
+/*	background:url('/Style Library/Images/LCTImages/Left_nav_show_icon.jpg') no-repeat ;*/
+	margin-right:5px;
+}
+td.s4-titlelogo {
+padding-top:10px;
+padding-bottom:10px;
+padding-left:20px;
+padding-right:35px;
+}
+td.s4-titlelogo a{
+display:inline-block;
+padding-right:40px;
+border-right:1px solid #d5d5d5;
+	
+}
+.s4-title-inner{
+	min-height:inherit;
+}
+.searchmainsearch {
+	min-width:60px;
+}
+.s4-search input.ms-sbplain {
+	background:#ffffff;
+	border: 0px solid red !important;
+	font-size: 12px;
+}
+.s4-search .srch-gosearchimg {
+	border: 0px solid red !important;
+}
+.ms-sbtable.ms-sbtable-ex.s4-search{
+border:1px solid #a2a2a2;
+}
+#s4-mainarea {
+padding-top:0px;
+}
+.ms-quickLaunch {
+	padding-top:0px;
+}
+.s4-ca {
+	background:none;
+	margin-right:0px;
+}
+/*---------- Tabs Start ------------ */
+#TopNavTabs .headernavigation {
+	background:url('/Style Library/Images/LCTImages/top_nav_background.jpg') repeat-x top ;
+	height:28px ;
+	padding-top:9px ;
+	padding-left:10px ;
+}
+#TopNavTabs ul.headernavigation  {
+			
+	background-image:url('/Style Library/Images/LCTImages/top_nav_background.jpg') !important ;
+	background-repeat:repeat-x;
+}
+.ui-helper-clearfix:before, .ui-helper-clearfix:after {
+	display:inline-block ;
+}
+
+.ui-tabs .ui-tabs-nav {
+	display:flex;
+	padding:0px ;
+	margin:0px ;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+border-bottom-right-radius: 0px ;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+border-bottom-left-radius: 0px ;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+border-top-right-radius: 0px ;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+border-top-left-radius: 0px ;
+}
+.ui-widget-header {
+	border:0px solid red ;
+	background:none ;
+}
+.ui-widget-content {
+	border:0px solid red ;
+	padding:0px ;
+	background:none ;
+}
+.ui-tabs .ui-tabs-nav li {
+	margin:0px 3px 0px 0px ;
+}
+.ui-tabs .ui-tabs-panel {
+background:#ffffff ;
+border:1px solid #e0e0e0 ;
+}
+.ui-tabs-anchor {
+	outline:none ;
+	font-family:Arial, Helvetica, sans-serif ;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background:#8e8e8e ;
+	color:#ffffff ;
+}
+.ui-widget-header a {
+	font-size:12px ;
+	color:#ffffff !important;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+font-weight:bold ;
+color:#d02a42 !important;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+background:#ffffff ;
+border:1px solid #e0e0e0 ;
+border-bottom:0px solid red ;
+}
+.ui-tabs .ui-tabs-nav {
+	position: relative ;
+z-index: 999 ;
+top: 1px ;
+}
+#tabs2 {
+	margin-top:10px;
+}
+BODY #s4-topheader2{
+	display:none;
+}
+#TopNavTabs .headernavigation li a{
+font-family:Arial, Helvetica, sans-serif ;
+font-weight:bold ;
+padding:0px ;
+line-height:28px ;
+width:122px ;
+text-align:center ;
+	
+}
+#TopNavTabs .headernavigation li{
+	background:none ;
+	border:0px solid red ;
+	padding:0px ;
+	margin:0px ;
+	height:28px ;
+}
+#TopNavTabs .headernavigation li.ui-tabs-active {
+	background:#fafafa ;
+}
+.ui-tabs div.MainTabBody.ui-tabs-panel {
+	background:none ;
+	border:0px solid red ;
+	padding:10px 10px 10px 0px;
+}
+.LeftSlideTag{
+	width:25px;
+	height:50px;
+	display:inline-block;
+	margin-top:20px;
+	float:left;          
+	background:url('/Style Library/Images/LCTImages/Left_nav_hide_icon.jpg') no-repeat ;
+	margin-right:5px;
+}
+#tabs4 {
+margin-top: 10px;
+}
+.LeftNavigationZone {
+	width:240px;
+	float:left;
+}
+
+.maininnertabs .ui-tabs-panel {
+padding:0px;
+	
+}
+.ms-bottompaging .ms-vb{
+background:#f1f1f1;
+	
+}
+.maininnertabs .ms-wpContentDivSpace {
+margin-left:0px;
+margin-right:0px;
+	
+}
+.maininnertabs .ms-bottompagingline1 {
+	display:none;
+}
+
+.maininnertabs .ms-bottompagingline3 {
+	display:none;
+}
+/*---------- Tabs End ------------ */
+
+
+body #s4-leftpanel {
+display:none;
+}
+.s4-ca {
+margin-left:0px;
+}
+.maininnertabs {
+	margin-left:280px;
+}
+
+.ui-tabs-panel {
+	position:relative;
+}
+.ui-tabs-panel>table>tbody > tr:nth-child(2) >td .ms-WPHeader{
+	display:none;
+}
+.ui-tabs-panel>table>tbody > tr:nth-child(2) >td .ms-WPHeader{
+	display:none;
+}
+
+.ms-WPBorder {
+	border:0px solid red;
+}
+.ui-tabs-panel .ms-PartSpacingVertical{
+	display:none;
+}
+/*.s4-ctx > a > img {
+	visibility:visible;
+}*/
+.wpt-ui-tabs-wrapper th.ms-vh2 .s4-ctx{
+float:right;
+}
+.LeftNavigationZone .LeftSection{
+background:#fefefe;
+}
+.LeftNavigationZone .LeftSection > table{
+background:#fefefe;
+border:1px solid #dddddd;
+margin-bottom:17px;
+}
+
+.LeftNavigationZone .ms-WPHeader{
+background:#eeeeee;
+border-bottom:1px solid #dddddd;
+}
+.ms-WPHeader td {
+	border-bottom:0px solid red;
+}
+.LeftNavigationZone ul, .LeftNavigationZone li{
+list-style:none;
+margin:0px;
+padding:0px;	
+}
+.LeftSection li a{
+background:url('/Style Library/Images/LCTImages/Left_nav_arrow.png') no-repeat 5px center;
+padding:8px 5px 8px 20px;
+display:block;
+color:#333333 !important;
+
+}
+.LeftSection .ms-WPTitle{
+font-size:14px;
+font-weight:bold;
+color:#d02a42;
+background:url('/Style Library/Images/LCTImages/mail_icon.png') no-repeat 5px center;
+padding-left:28px;
+}
+
+.LeftSection1 .ms-WPTitle{
+	
+}
+
+/* form table start */
+.ms-formtable {
+	border:1px solid #dddddd;
+	background:#ffffff;
+}
+.ms-formbody {
+	background:#f5f5f5;
+	border-left:1px solid #dddddd;
+}
+.ms-formtable tr td{
+	border-top:1px solid #dddddd;
+	padding-left:7px;
+	padding-right:7px;
+
+}
+.ms-formtable tr td td{
+	border-top:0px solid #dddddd;`
+padding-left:0px;
+	padding-left:0px;
+}
+.ms-formtable tr:first-child td{
+border-top:0px solid #dddddd;
+}
+.ms-formline {
+	border-top:0px solid #dddddd;
+}
+.ms-ButtonHeightWidth {
+	background:#d02a42;
+	border:0px solid red;
+	color:#ffffff;
+}
+/* form table End */
+
+.nf-non-dialog-outer .nf-filler-wrapper {
+	border:0px solid red !important;
+}
+.nf-filler-wrapper .ms-formtable tr td {
+	padding-left:0px;
+	padding-right:0px;
+}
+.nf-non-dialog-outer .nf-filler-wrapper-outer {
+	background:none !important;
+}
+.nf-filler-wrapper .ms-formbody {
+	border-left: 0px solid #dddddd; 
+	background:#fefefe;
+
+}
+.nf-section {
+/*border-bottom: 1px solid #dddddd !important;*/
+border-top: 1px solid #dddddd !important;
+}
+
+.nf-form-input {
+background-color: #f5f5f5 !important;
+border-left:1px solid #dddddd !important;
+}
+.nf-section-bottom {
+	border-top:1px solid #dddddd !important;
+}
+.nf-filler-wrapper input[type="button"], .nf-filler-wrapper input[type="submit"]{
+	background:#d02a42;
+	border:0px solid red;
+	color:#ffffff;
+	width:90% !important;
+	
+}
+.nf-outer.ms-formbody{
+	width:701px !important;
+}
+.nf-form-label:last-child{
+	border-bottom:1px solid #dddddd !important;
+}
+.nf-section:last-child{
+	border-bottom:1px solid #dddddd !important;
+}
+.ms-vb2 {
+	font-size:12px;
+}
+.ms-vb2 a:link {
+color:#d02a42;
+font-size:12px;
+}
+.ms-vb-user a:visited{
+	color:#d02a42;
+	font-size:12px;
+}
+.ms-vb-user a:link {
+	color:#d02a42;
+	font-size:12px;
+}
+.ms-vb a:link {
+	color:#d02a42;
+	font-size:12px;
+}
+.ms-vb a:visited {
+	color:#d02a42;
+	font-size:12px;
+}
+
+.RadGrid_Default .rgHeader {
+background:#eeeeee;
+
+}
+.s4-wpTopTable .rgMasterTable tr TD A {
+	color:#d02a42 !important;
+}
+.s4-wpTopTable .ms-WPHeader TD:first-child {
+background-image:none;
+	background:#eeeeee !important;
+}
+.s4-wpTopTable .ms-WPHeader TD {
+	background-image:none;
+	background:#eeeeee !important;
+
+}
+.s4-wpTopTable .ms-wpTdSpace {
+	background-image:none;
+	background:#eeeeee !important;
+
+}
+.ms-WPTitle {
+	color:#d02a42 !important;
+}
+.s4-wpTopTable {
+	background:#ffffff;
+	border:1px solid #dddddd !important; 
+}
+.s4-wpTopTable .ms-WPHeader td{
+border-top:0px solid red !important;
+}
+.imageicon {
+	width:17px !important;
+	height:17px !important;
+}
+.ms-WPTitle a, .ms-WPTitle a:visited {
+	color:#d02a42 !important;
+
+}
+.RadGrid_Default .rgHeader {
+	background:#eeeeee !important;
+
+}
+div.imageicon {
+	margin-top:13px !important;
+}
+#cssmenu li{
+	padding-right:20px;
+}
+
+#cssmenu li a{
+padding:5px !important;
+padding-top:10px !important;
+padding-left:22px !important;
+display: inline;
+}
+
+#cssmenu li.home a{
+	background:url('/Style Library/Images/LCTImages/home_icon.png') no-repeat left !important;
+}
+#cssmenu li.subscribe a{
+	background:url('/Style Library/Images/LCTImages/emailsubscription_icon.png') no-repeat left !important;
+}
+#cssmenu li.home a:hover{
+	background-image:url('/Style Library/Images/LCTImages/home_icon.png') !important;
+}
+#cssmenu li.subscribe a{
+	background:url('/Style Library/Images/LCTImages/emailsubscription_icon.png') no-repeat left !important;
+}
+
+.s4-titletext{
+	padding-top:5px !important;
+	
+}
+.s4-titletext h1 a, .s4-titletext h2{
+	
+	font-size:18px !important;
+	color:#666666 !important;
+}
+#cssmenu li a {
+	height:20px;
+}
+.countryassignmentclass {
+	padding:0px;
+	margin:0px;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBorder .ms-wpContentDivSpace{
+	padding:0px;
+	margin:0px;
+}
+.countryassignmentclass > table{
+width:100%;
+padding:0px;
+margin:0px;
+background:#f5f5f5;
+}
+.countryassignmentclass > table > tbody > tr > td{
+padding:7px;
+padding-left:10px;
+margin:0px;
+border:0px solid red;
+border-bottom:1px solid #dddddd;
+border-right:1px solid #dddddd;
+vertical-align:top;
+}
+.countryassignmentclass > table > tbody > tr > td:first-child{
+background:#ffffff;
+width:200px;
+}
+.countryassignmentclass #LeftPane,  .countryassignmentclass #divRightPane{
+height:350px;
+overflow:auto;
+min-width:210px;
+background:#ffffff;
+border:1px solid #dddddd;	
+}
+
+.countryassignmentclass #LeftPane > div > table{
+	background:#f8f8f8;
+	width:100%;
+}
+.countryassignmentclass #LeftPane > a {
+	display:none;
+}
+
+.countryassignmentclass #LeftPane > div > div > table {
+
+	border-bottom:1px solid #dddddd;
+}
+.countryassignmentclass #LeftPane > div > table > tbody > tr > td:first-child{
+	width:20px;
+}
+.countryassignmentclass #LeftPane > div > div > table > tbody > tr > td {
+	width:20px !important;
+}
+.countryassignmentclass #LeftPane > div > div > table > tbody > tr > td:last-child {
+	width: auto !important;
+}
+#btnSelect{
+	background:url('/SiteAssets/LogoImage/subscribearrow.png') #d02a42 no-repeat 90px 5px;
+	border:0px solid red;
+	color:#ffffff;
+	margin:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:35px;
+	text-align:right;
+
+}
+#btnSelectAll {
+	background:url('/SiteAssets/LogoImage/selectall.png') #8c8c8c no-repeat 90px 5px;
+	border:0px solid red;
+	color:#ffffff;
+	margin:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:35px;
+	text-align:right;
+	position:relative;
+	top:-70px;
+
+
+}
+#btnRemove {
+	background:url('/SiteAssets/LogoImage/unsubscribearrow.png') #d02a42 no-repeat 15px 5px;
+	border:0px solid red;
+	color:#ffffff;
+	margin:5px;
+	
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:35px;
+	text-align:left;
+}
+#btnRemoveAll {
+	background:url('/SiteAssets/LogoImage/removeall.png') #8c8c8c no-repeat 10px 5px;
+	border:0px solid red;
+	color:#ffffff;
+	margin:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:35px;
+	text-align:left;
+}
+.countryassignmentclass input[type="submit"]{
+	background:#d02a42;
+	border:0px solid red;
+	color:#ffffff;
+	margin:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	min-width:100px;
+}
+.countryassignmentclass > table > tbody > tr > td > label{
+padding-top:3px;
+display:inline-block;
+}
+.disableControl { 
+background:#dcdcdc; 
+color:#777777;
+}
+.onlytopborder {
+border-top:1px solid #ececec;
+}
+.onlybottomborder{
+border-bottom:1px solid #ececec;
+}
+img.MandIcon{
+	width:7px !important;
+	height:7px !important;
+}
+
+img.MandIconComments{
+	width:7px !important;
+	height:7px !important;
+}
+img.MandIconCanComments{
+	width:7px !important;
+	height:7px !important;
+}
+#s4-titlerow .s4-wpTopTable {
+	border:0px solid #cccccc !important;
+}
+.s4-title h2 {
+	display:inline-block;
+	padding-top:6px;
+}
+.ms-input .SelectProduct option{
+border-bottom:1px solid #efefef;
+	
+}
+.ui-tabs .ui-tabs-nav li {
+	white-space: inherit;
+}
+.LeftNavigationZone .s4-wpTopTable {
+	width:100% !important;
+}
+.LeftSection .ms-WPTitle {
+	width:100% !important;
+}
+.LeftNavigationZone .s4-wpTopTable {
+	border: 0px solid #dddddd !important;
+}
+.LeftNavigationZone .ms-wpContentDivSpace {
+	width:100% !important;
+}
+.LeftNavigationZone .ms-WPBody {
+	width:100% !important;
+}
+#TopNavTabs .MainTabBody .ui-tabs-nav {
+display: inline-block;
+}
+
+#TopNavTabs .MainTabBody .ui-widget-header li{
+	width:300px;
+}
+#TopNavTabs .s4-wpTopTable {
+	border: 0px solid #dddddd !important;
+}
+.viewalllink{
+	position: absolute;
+	bottom:6px;
+	right:28px;
+}
+
+.viewalllink .s4-wpTopTable{
+	background:none !important;
+	
+}
+.viewalllink .s4-wpTopTable a
+{
+	color:#d02a42;
+}
+.LeftSection .ms-WPBody .ms-WPTitle {
+width: auto !important;
+background: #eeeeee url('/Style Library/Images/LCTImages/mail_icon.png') no-repeat 15px center;
+border-bottom: 1px solid #dddddd;
+margin:0px;
+margin-bottom:0px;
+padding-left:37px;
+}
+
+.LeftSection .ms-WPBody a{
+padding:5px 5px 5px 25px;
+display: inline-block;
+	
+}
+.LeftSection .ms-wpContentDivSpace{
+	padding:0px !important;
+}
+.LeftSection p{
+margin:0px !important;
+}
+.LeftSection br{
+	display:none !important;
+}
+.ui-tabs-panel .s4-wpTopTable .ms-listviewtable{
+	padding-bottom:20px !important;
+}
+/*.ms-bottompaging{
+	padding-top:10px;
+}*/
+
+.splashLinkFrame .s4-wpTopTable {
+border:0px solid red !important;
+}
+.s4-wpTopTable  > tbody > tr > .ms-WPBorder > .ms-wpContentDivSpace > div > div > div > .ms-long {
+	width:100%;
+}
+
+.s4-wpTopTable > tbody > tr > .ms-WPBorder > .ms-wpContentDivSpace > div > div > div > .ms-long > tbody > tr > td {
+padding-left:5px !important;
+	
+}
+
+.s4-wpTopTable .ms-long tr td{
+
+padding:10px 0px 10px 10px;
+}
+
+.s4-wpTopTable .ms-long tr:first-child td{
+vertical-align:top;
+padding:10px;
+border-bottom:1px solid #cccccc !important;
+}
+
+.s4-wpTopTable .ms-long .ms-input {
+	background:#f5f5f5;
+}
+.s4-wpTopTable .ms-long .ms-input:first-child {
+	width:200px !important;
+}
+.s4-wpTopTable .ms-long tr:first-child td:nth-child(2){
+width:200px !important;
+	
+}
+.ms-wpContentDivSpace {
+	margin:0px;
+}
+select.SelectProduct {
+width:230px !important;
+}
+select.SelectSubscription {
+width:230px !important;	
+}
+input[type=button] {
+background: #d02a42;
+border: 0px solid red;
+color: #ffffff;
+font: 9pt tahoma;
+height: 2.1em;
+margin-right:5px;
+padding-top: 0.1em;
+padding-bottom: 0.4em;
+}
+
+.disableControl { 
+background:#dcdcdc; 
+}
+.onlytopborder {
+border-top:1px solid #ececec;
+}
+.onlybottomborder{
+border-bottom:1px solid #ececec;
+}
+img.MandIcon{
+	width:7px !important;
+	height:7px !important;
+}
+
+img.MandIconComments{
+	width:7px !important;
+	height:7px !important;
+}
+img.MandIconCanComments{
+	width:7px !important;
+	height:7px !important;
+}
+img.MandIconConfCan {
+	width:7px !important;
+	height:7px !important;
+}
+.ms-ButtonHeightWidth {
+	margin-bottom:10px !important;
+}
+.staricon {
+	color:red !important;
+}
+.MandIconrsntodefer img{
+width:7px !important;
+height:7px !important;
+margin-top:12px !important;
+}
+.Panel1 .nf-form-label{
+width:275px !important;
+
+}
+.tdAddRemoveButton{
+	vertical-align:middle !important;
+}
+.tdAddRemoveButton .ms-ButtonHeightWidth{
+	width:100px;
+}
+.btn {
+border-radius:0px !important;
+border:1px solid gray !important;
+padding: 2px 5px !important;
+text-align:left !important;
+}
+.btn .caret {
+	float:right !important;
+	margin-right:2px !important;
+	margin-top:8px !important;
+	position:absolute;
+	right:2px;
+}
+h3.ms-WPTitle{
+	font-weight:bold;
+	font-size:14px;
+	padding-left:10px;
+}
+#tblReport td{
+	padding:5px;
+	padding-left:10px;
+}
+td.tdSelectProduct{
+border-left:1px solid #cccccc !important;
+}
+#btnSubscribe {
+margin-top: 50px;
+}
+.ms-formtable {
+	margin:0px !important;
+}
+/*.nf-filler-wrapper-outer {
+	width: 701px !important;
+}
+.nf-filler-wrapper {
+	width:701px !important;
+}*/
+
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table{
+width:100% !important;
+	
+}
+
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBorder .ms-wpContentDivSpace{
+	padding:0px !important;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table td{
+	padding:5px 10px 5px 10px !important;
+	border-bottom:1px solid #cccccc;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table tr:last-child td{
+	border-bottom:0px solid #cccccc;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table td .txtCan
+{
+	width:300px;
+	height:96px;
+}
+
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table .labelbold {
+	width:200px;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBody .CancelReqTable table .labeltext{
+	background: #f5f5f5;
+	border-left:1px solid #cccccc;
+}
+.viewalltablink {
+	color: #d02a42 !important;
+}
+.tabinnerdiv {
+	position:relative;
+	margin-bottom:20px;
+}
+.viewallfortab {
+	position:absolute;
+	z-index:999;
+	right:10px;
+	bottom:10px;
+}
+#TopNavTabs .MainTabBody .ui-widget-header li a{
+	width:280px;
+	text-align:center;
+}
+.CancelReqTable {
+	border-spacing:0px;
+}
+.CancelReqTable table{
+	border-spacing:0px !important;
+}
+.CancelReqTable table td{
+	text-align:left;
+	padding:10px !important;
+}
+input[type="submit"] {
+	background:#d02a42;
+	border:0px solid red;
+	color:#ffffff;
+	padding:5px;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBorder .CancelReqTable table tr:last-child td.labeltext{
+	background:#ffffff;
+}
+.welcome-content > .ms-rtestate-field > p{
+display:none;
+	
+}
+.ms-rtestate-read.ms-rte-wpbox{
+	margin-bottom:10px;
+}
+tr.ms-viewheadertr a {
+font-weight:bold;
+
+}
+.wpt-ui-tabs-wrapper tr.ms-viewheadertr a {
+font-weight:bold;
+text-decoration:underline !important;
+}
+
+
+th .ms-vh-div {
+font-weight:bold;
+
+color:#333333;
+}
+.wpt-ui-tabs-wrapper th .ms-vh-div {
+text-decoration:underline;
+/*padding-right:5px;*/
+}
+/*.wpt-ui-tabs-wrapper th .ms-vh-div {
+	display:block;
+	padding-right:10px;
+	background:url('/_layouts/images/ecbarw.png') no-repeat right;
+	font-weight:bold;
+text-decoration:underline;
+color:#333333;
+}
+*/
+.wpt-ui-tabs-wrapper th > div {
+	padding-right:0px;
+	background:url('/_layouts/images/ecbarw.png') no-repeat right;
+	font-weight:bold;
+text-decoration:underline;
+color:#333333;
+width:inherit !important;
+margin-right:5px !important;
+
+}
+
+
+.wpt-ui-tabs-wrapper tr.ms-viewheadertr .s4-ctx{
+	display:none !important;
+}
+tr.ms-viewheadertr th{
+
+}
+tr.ms-viewheadertr th.ms-vh-icon {
+	background:none;
+}
+.nf-textbox-wrapper input[type="text"]{
+margin:0px !important;
+	
+}
+
+input[disabled].btn:hover, input[disabled].btn:active, input[disabled].btn:focus{
+  background:#dcdcdc; 
+}
+
+.HAVariationCodectrl{
+	height:49px !important;
+}
+.CSIDeviationCommentsctrl textarea, .LabelChangeApprovalCommentsctrl textarea{
+	height:175px !important;
+}
+.ctrlbottomborder{
+	border-bottom:1px solid #dddddd !important;
+}
+.cancellationcmntheight{
+/*height:197px !important;*/
+}
+.wpt-ui-tabs-wrapper .wpt-ui-tabs-panel.ui-tabs-panel .ms-wpContentDivSpace {
+	padding:0px !important;
+}
+.viewalllink a{
+	color:#d02a42 !important;
+}
+.HideSelect1 {
+	display:none !important;
+}
+.HideSelect {
+	display:none !important;
+}
+.nf-filler-control-border select{
+margin-top:5px;
+	
+}
+.ms-formbodysurvey {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px !important;
+	font-weight:normal !important;
+}
+.wpt-ui-tabs-wrapper .ms-wpContentDivSpace {
+overflow:visible;
+display:table;
+}
+.wpt-ui-tabs-panel.ui-tabs-panel.ui-widget-content.ui-corner-bottom{
+	display:table;
+}
+.removeborderfromnintex .ms-long tr td{
+	border-bottom:0px solid red !important;
+}
+.s4-wpTopTable .removeborderfromnintex .ms-long TR:first-child TD {
+	border-bottom:0px solid red !important;
+}
+.ntxcancelbutton {
+	width:150px !important;
+}
+.ntxcancelbutton {
+	width:150px !important;
+}
+#s4-mainarea {
+	display:table;
+}
+#s4-bodyContainer {
+	display: table;
+width: 100%;
+}
+.wpt-ui-tabs-panel.ui-tabs-panel.ui-widget-content.ui-corner-bottom {
+width:100%;
+}
+.wpt-ui-tabs-wrapper .wpt-ui-tabs-panel.ui-tabs-panel .ms-wpContentDivSpace {
+	width:100%;
+}
+.nxtborderbottom {
+	border-bottom:1px solid #dddddd !important;
+}
+.ntxLastRow {
+	border-bottom:1px solid #dddddd !important;
+	height:49px !important;
+	
+}
+.s4-ca.s4-ca-dlgNoRibbon .s4-ba .ms-bodyareacell .ms-viewheadertr th.ms-vh2 > div a{
+	color:#333333 !important;
+}
+/*.s4-ca.s4-ca-dlgNoRibbon .s4-ba .ms-bodyareacell .ms-viewheadertr th.ms-vh2 > div{
+	margin-right:30px;
+	background:url('/_layouts/images/ecbarw.png') no-repeat right;
+}*/
+.s4-ca.s4-ca-dlgNoRibbon .s4-ba .ms-bodyareacell .ms-viewheadertr th.ms-vh2-nograd {
+font-weight:bold !important;
+text-decoration:underline !important;
+	color:#333333 !important;
+}
+.nf-filler-control-inner .ms-rtelonger{
+	height:85px !important;
+	border:1px solid #c4c4c4;
+	width:403px;
+}
+.s4-wpcell-plain .s4-wpTopTable .ms-WPBorder .CancelReqTable TABLE TD .txtCan {
+	height:97px;
+}
+#btnSubscribe {
+background-image:url('/SiteAssets/LogoImage/subscribearrow.png');
+background-repeat:no-repeat;
+background-position:140px 5px;
+	
+}
+#btnUnsubscribe{
+background-image:url('/SiteAssets/LogoImage/unsubscribearrow.png');
+background-repeat:no-repeat;
+background-position:20px 5px;
+	
+}
+.ms-MenuUIPopupBody.ms-MenuUIPopupScreen{
+	z-index:9999 !important;
+}
+.ms-formbodysurvey {
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+}
+.nf-filler-control-inner label{
+	/*font-size:12px;*/
+	font-family:Arial, Helvetica, sans-serif;
+}
+.ms-formtable .ms-formlabel h3.ms-standardheader {
+font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333333;
+}
+.wpt-ui-tabs-wrapper .noindex.ms-wpContentDivSpace > table:first-child{
+	margin-bottom:20px;
+}
+.height10px {
+	margin-top:25px;
+}
+tr.ms-WPHeader > td.ms-wpTdSpace {
+display:none;
+	
+}
+.CancelReqTable > tbody > tr > td {
+	
+	padding:0px;
+}
+.CancelReqTable > tbody > tr .labeltext br{
+	display:none !important;
+}
+#cssmenu UL {
+	height:20px;
+	margin-top:10px;
+}
+.s4-pagedescription {
+	/*height:25px;*/
+}
+#tblReport .btn-group .multiselect.dropdown-toggle.btn btn-default{
+	position:relative;
+}
+.nf-filler-control-inner > .nf-textbox-wrapper {
+	padding:0px !important;
+}
+.nf-textbox-wrapper INPUT[type='text'] {
+	width:98% !important;
+}
+.CancelReqTable td.labeltext span{
+	display:block;
+}
+INPUT[type='submit'] {
+	filter:none !important;
+}
+.cancelConfimation.nf-associated-control{
+	padding-top:5px;
+}
+.countryassignmentclass input[type="text"] {
+	min-width:210px;
+}
+.ntfsubcheckboxes {
+margin-left:-23px;
+
+display:inline-block;
+}
+.nfrowsubfield .nf-filler-control-inner{
+padding-left:16px;
+}
+.ntfsubcheckboxes .nf-associated-control {
+padding-top:10px;	
+}
+.LeftNavigationZone tr.ms-WPHeader > td.ms-wpTdSpace {
+	display:table-cell;
+}
+
+.LeftSection6 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/view.png') !important;
+}
+.LeftSection7 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/search.png') !important;
+}
+.LeftSection8 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/reports.png') !important;
+}
+.LeftSection9 h3.ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/admin.png') !important;
+}
+#ROWLeftSlidePanel .LeftSection7 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/view.png') !important;
+}
+#ROWLeftSlidePanel .LeftSection8 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/search.png') !important;
+}
+#ROWLeftSlidePanel .LeftSection9 .ms-WPBody .ms-WPTitle{
+background-image:url('/Style Library/Images/LCTImages/reports.png') !important;
+}
+
+.LeftNavigationZone .LeftSection .ms-WPBody.noindex a{
+color:#333333;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+background:url('/Style Library/Images/LCTImages/left_nav_link_arrow.png') no-repeat 14px 9px;
+display:block;
+	
+}
+
+.LeftNavigationZone .LeftSection .ms-WPBody.noindex .s4-wpTopTable a{
+	color:#333333 !important;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+background:url('/Style Library/Images/LCTImages/left_nav_link_arrow.png') no-repeat 14px 9px;
+display:block;
+
+}
+.LeftNavigationZone .LeftSection .ms-WPBody.noindex .s4-wpTopTable  a:link, .LeftNavigationZone .LeftSection .ms-WPBody.noindex .s4-wpTopTable  a:visited{
+	color:#333333 !important;
+}
+.LeftNavigationZone .ms-WPBody A:visited{
+	color:#333333 !important;
+}
+.LeftNavigationZone .LeftSection .ms-WPBody.noindex .s4-wpTopTable a font{
+	color:#333333 !important;
+}
+.SubscriptionAlertClass {
+margin:20px auto;
+width:500px;
+border:1px solid #dddddd;
+background:#fdfdfd;
+}
+.SubscriptionAlertClass td{
+	text-align:center;
+	padding:20px;
+}
+.notificationtext {
+font-size:14px;
+font-weight:bold;
+}
+.SelectCountryOption {
+	background:#f3f3f3;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	border-top:1px solid #dddddd;
+	padding:8px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:left;
+}
+.PreviousCountry {
+	padding:5px;
+}
+#SelectedCountry .SelectedCountry{
+	padding:5px;
+}
+.nf-filler-control-inner .ms-long .ms-input select{
+width:120px !important;
+}
+.PreviousCountry:first-child {
+	border-top:0px solid #dddddd;
+}
+.PreviousCountry {
+	/*border-top:1px solid #dddddd;*/
+}
+#LeftPane > div > div > table{
+
+}
+
+select {
+	color:#000000 !important;
+
+}
+.nf-associated-control {
+	color:#000000 !important;
+
+}
+
+.nf-associated-control select {
+	color:#000000 !important;
+	opacity:1;
+}
+
+#lblCountry span {
+	margin: 0 0 0 2px;
+}
+ a {
+	cursor:pointer;
+}
+
+.ms-vb a {
+	cursor:pointer;
+}
+.ms-vb a:visited:hover {
+	color:#d02a42 !important;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+#ProductValue a:visited:hover {
+	color:#d02a42 !important;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+.ms-WPHeader .ms-WPHeaderTd {
+border-bottom: 1px solid #ddd !important;
+}
+
+.nf-label-control {
+	width:90%;
+}
+
+
+.nf-filler-control-inner .ms-rtelonger {
+	width:99.5% !important;
+}
+#s4-searcharea{
+	display:none;
+}
+.clsreligion {
+	top:-3px !important;
+}
+.panel6 .nf-filler-control-inner.nf-container-inner{
+overflow:visible !important;
+}
+
+span.ms-imnSpan img.ms-imnImg {
+	display:none;
+}
+td.ms-vb {
+	padding:0px 0 4px 0 !important;
+}
+
+
+#cssmenu li.home a {
+	background-position: 0px 9px !important;
+    display: inline;
+}
+
+#cssmenu li.subscribe a{
+	background-position: 0px 11px !important;
+	display: inline;
+}
+
+#TopNavTabs .headernavigation li.ui-state-default {
+background-color: #6a6a6a;
+margin-right: 3px;
+}
+#TopNavTabs .headernavigation li.ui-tabs-active {
+background: #fafafa !important;
+}
+/*td.labeltext input {
+width: 60% !important;
+}
+td.labeltext textarea{
+width: 60% !important;
+}
+td.labeltext select{
+width: 60% !important;
+}
+element.style {
+}*/
+.labelbold span.staricon {
+margin-left: 3px;
+}
+.fixmultilineheight textarea{
+	height:104px !important;
+}
+.tabinnerdiv .ms-menuimagecell {
+	display:block !important;
+}
+.ms-menuimagecell {
+	background-color:#d3dee9 !important;
+	background:none !important;
+	border:0px solid red !important;
+}
+
+.tabinnerdiv .ms-vh2 .ms-vb {
+vertical-align:inherit !important;
+padding-right:5px !important;
+}
+.tabinnerdiv .ms-vh .ms-vh {
+vertical-align:inherit !important;	
+}
+.tabinnerdiv .ms-vh .ms-imnImgTD img{
+	margin-top:7px;
+}
+/*.tabinnerdiv TH.ms-vh {
+	vertical-align:middle !important;
+}
+.tabinnerdiv .ms-vh2 {
+	vertical-align:middle !important;
+}
+.tabinnerdiv .ms-vh2 .ms-vb{
+	vertical-align:middle !important;
+}
+.tabinnerdiv .ms-vh .ms-vh{
+	vertical-align:middle !important;
+}
+.tabinnerdiv .ms-vh .ms-imnImgTD img{
+	margin-top:7px;
+}
+*/
+.fixmultilineheight .ms-rtestate-field{
+	height:100px;
+	overflow:auto !important;
+}
+img.Hide_dummy_product {
+height:172px !important;
+}
+
+.wpt-ui-tabs-wrapper .ms-listviewtable {
+	margin-bottom:20px !important;
+}
+.wpt-ui-tabs-wrapper .ms-unselectedtitle > tbody > tr > td:last-child{
+	display:none !important;
+}
+.ms-vh2 table.ms-selectedtitle{
+ background-color: transparent !important;
+}
+.countryassignmentclass > table > tbody > tr > td > table{
+	border-spacing:0px;
+}
+.countryassignmentclass > table > tbody > tr > td > table > tbody > tr > td{
+	padding:0px;
+}
+#tblReport table{
+	border-spacing:0px;
+}
+#tblReport table > tbody > tr > td{
+	padding:0px;
+}
+
+#tblReport table > tbody > tr > td .ms-dtinput a{
+margin-left:5px;
+	
+}
+#tblReport table > tbody > tr > td span{
+	padding-right:10px !important;
+	padding-left:10px !important;
+
+}
+.tdAvailableCountries {
+width:250px !important;	
+}
+.tdButtonCountries {
+	width:120px !important;
+}
+.tdSelectedCountries {
+	width:250px !important;
+}
+.tdErrorCountries span{
+	padding-left:10px;
+	display:inline-block;
+}
+.countryassignmentclass td label{
+font-weight:bold;
+}
+
+.wpt-ui-tabs-wrapper .ms-listviewtable tbody tr th.ms-vh2 img {
+	padding:0 0 0 4px;
+}
+
+.removeborderfromnintex.nf-resizable .ms-long select{
+width:150px !important;
+}
+.removeborderfromnintex.nf-resizable .ms-long td{
+	padding:0px !important;
+	margin:0px !important;
+	padding-right:5px !important;
+}
+.removeborderfromnintex.nf-resizable .ms-long .ms-input {
+width:150px !important;
+}
+
+td > div.ms-WPBody > div > div > iframe{
+width:100% !important;
+}
+
+.BodyHiddenStyle {
+Visibility: hidden;
+}
+#ProductValue a{
+color:#d02a42 !important;
+}
+
+.countryassignmentclass INPUT[type='submit'].btnSelectAll {
+	width:112px !important;
+}
+.nf-form-input.nf-section.GRN_align .nf-filler-control-inner {
+	bottom:5px !important;
+	top:5px !important;
+}
+div.hide_tooltip{
+	display:none !important;
+}
+.ExtraTitle {
+	font-size: 18px !important;
+	color:#666666 !important;
+	display:inline-block;
+	background:url('/Style Library/Images/LCTImages/bredcrumbarrow.jpg') no-repeat 5px 7px;
+	padding-left:15px;
+	display:none;
+}
+.ms-vh.ms-imnTxtTD a#diidSortAuthor {
+	color:#333333 !important;
+}
+.ms-vh table.ms-selectedtitle{
+/* [ReplaceColor(themeColor:"Light1-Lighter")] */ background-color: inherit !important;
+}
+.fixmultilineheight TEXTAREA {
+width:500px !important;
+max-width:100% !important;
+min-height:100% !important;
+	
+}
+.ms-wpContentDivSpace{
+	overflow:visible !important;
+}
+.wpt-ui-tabs-wrapper .ms-menuimagecell{
+	display:none !important;
+}

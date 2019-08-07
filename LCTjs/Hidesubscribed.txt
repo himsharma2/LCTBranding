@@ -1,0 +1,10 @@
+<script src="/SiteAssets/jquery.SPServices-0.7.2.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+$('h3.ms-standardheader:contains("Subscribed")').closest("tr").hide();
+
+});
+
+</script>

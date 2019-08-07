@@ -1,0 +1,86 @@
+ <script type = "text/javascript" language="javascript">
+    $("#s4-bodyContainer").hide();
+var SPserviceScriptOutputted = false;
+var jQueryScriptOutputted = false;
+var aryTAs = [];
+
+function initJQuery() {
+    if (typeof(jQuery) == 'undefined') {
+        if (!jQueryScriptOutputted) {
+            jQueryScriptOutputted = true;
+            var path = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js";
+
+            var script = document.createElement('script');
+            script.src = path;
+            document.getElementsByTagName('head')[0].appendChild(script);
+            setTimeout("initJQuery()", 500);
+        }
+    }
+    if (typeof($().SPServices) == "undefined") {
+        if (SPserviceScriptOutputted == false) {
+            SPserviceScriptOutputted = true;
+            var sppath = "http://cdnjs.cloudflare.com/ajax/libs/jquery.SPServices/2014.01/jquery.SPServices.min.js";
+            var spservice = document.createElement('script');
+            spservice.src = sppath;
+            document.getElementsByTagName('head')[0].appendChild(spservice);
+
+        }
+        setTimeout("initJQuery()", 1000);
+    } else {
+        $(function () {
+            ExecuteRequiredScript();
+        });
+    }
+}
+
+var isExecuted = false;
+function ExecuteRequiredScript() {
+    if (!isExecuted) {
+        isExecuted = true;
+        $(HideInactiveTAs);
+    }
+}
+function HideInactiveTAs() {
+    aryTAs = GetActiveTherapueticAreas();
+    if (aryTAs.length > 0) {
+        $("select[id$='_SelectCandidate'] option").each(function () {
+            if ($.inArray($(this).text(), aryTAs) > -1) {
+                $(this).wrap('<span>').hide();
+            }
+        });
+    }
+    $("#s4-bodyContainer").show();
+	
+    $("button[type='submit']").click(function () {
+        if (aryTAs.length > 0) {
+            $("select[id$='_SelectCandidate'] option").each(function () {
+                if ($.inArray($(this).text(), aryTAs) > -1) {
+                    $(this).wrap('<span>').hide();
+                }
+            });
+        }
+
+    });
+}
+
+function GetActiveTherapueticAreas() {
+    var aryActiveTAs = [];
+    $().SPServices({
+        operation : "GetListItems",
+        async : false,
+        listName : "Therapeutic Areas",
+        CAMLViewFields : "<ViewFields><FieldRef Name='Therapeutic Area'/><FieldRef Name='Deactivate'/></ViewFields>",
+        CAMLQuery : "<Query><Where><Eq><FieldRef Name='Inactive' /><Value Type='Boolean'>1</Value></Eq></Where></Query>",
+        completefunc : function (xData, Status) {
+            $(xData.responseXML).SPFilterNode("z:row").each(function () {
+                var TA = $(this).attr("ows_TherapeuticArea");
+                if (typeof TA != 'undefined' && TA != '') {
+                    aryActiveTAs.push(TA);
+                }
+            });
+        }
+    });
+    return aryActiveTAs;
+}
+initJQuery();
+</script >

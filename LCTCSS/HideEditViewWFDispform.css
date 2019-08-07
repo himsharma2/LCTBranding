@@ -1,0 +1,26 @@
+<style>
+/*--Remove Edit Item--*/
+
+#Ribbon\.ListForm\.Display\.Manage-LargeMedium-0
+
+{
+display:none;
+
+}
+
+
+/*--Remove ManagePermissions--*/
+
+#Ribbon\.ListForm\.Display\.Manage\.ManagePermissions-Medium
+
+{
+display:none;
+
+}
+#Ribbon\.ListForm\.Display\.Actions
+{
+display:none;
+
+}
+
+</style>

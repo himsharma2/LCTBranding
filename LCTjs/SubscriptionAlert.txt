@@ -1,0 +1,123 @@
+<script type="text/javascript">
+
+function GoToEmailSub()
+{
+	SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
+		getUserFromUserSubscriptionOnCancelClick();
+	});
+}
+
+
+function GoToHome() {
+	SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
+		getUserFromUserSubscriptionOnHomeClick();
+	});	
+}
+
+//get login user entry in User Subscription Configuration on Home button click
+function getUserFromUserSubscriptionOnHomeClick()
+{
+	context = new SP.ClientContext.get_current();        
+	web = context.get_web();
+	currentUser = web.get_currentUser();    
+
+	context.load(web);
+	context.load(currentUser);
+	list = web.get_lists().getByTitle('User Subscription Configuration');
+	var query= new SP.CamlQuery();
+	query.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'GileadUser\' LookupId=\'TRUE\' /><Value Type=\'Integer\'><UserID /></Value></Eq></Where></Query></View>'); 
+	
+	collListItems = list.getItems(query);
+	context.load(collListItems);	
+	
+	context.executeQueryAsync(
+	Function.createDelegate(this, this.updateCurrentUserMessageFlagOnHomeClickSucceeded), 
+	Function.createDelegate(this, this.onFailureMethod));
+}
+
+//update login user Message Flag to true on Home button click
+function updateCurrentUserMessageFlagOnHomeClickSucceeded(sender, args) {
+	
+	var listItemInfo = '';
+
+	var listItemEnumerator = collListItems.getEnumerator();
+	while (listItemEnumerator.moveNext()) {
+		var oListItem = listItemEnumerator.get_current();
+		oListItem = this.list.getItemById(oListItem.get_id());
+		oListItem.set_item('MessageFlag', '1');		
+		oListItem.update();
+	
+		context.executeQueryAsync(Function.createDelegate(this, this.onSuccessGoToHomeMethod), Function.createDelegate(this, this.onFailureMethod));
+	}	    
+}
+
+//Navigate to Default page on Home button click
+function onSuccessGoToHomeMethod(sender, args)
+ { 
+	var destinLink = window.location.href.replace("SubscriberAlert","default");			
+	window.location.replace(destinLink);
+ }
+
+//get login user entry in User Subscription Configuration on Cancel button click
+function getUserFromUserSubscriptionOnCancelClick() {
+	context = new SP.ClientContext.get_current();        
+	web = context.get_web();
+	currentUser = web.get_currentUser();    
+
+	context.load(web);
+	context.load(currentUser);
+	list = web.get_lists().getByTitle('User Subscription Configuration');
+	var query= new SP.CamlQuery();
+	query.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'GileadUser\' LookupId=\'TRUE\' /><Value Type=\'Integer\'><UserID /></Value></Eq></Where></Query></View>'); 
+	
+	collListItems = list.getItems(query);
+	context.load(collListItems);	
+	
+	context.executeQueryAsync(
+	Function.createDelegate(this, this.updateCurrentUserMessageFlagSucceeded), 
+	Function.createDelegate(this, this.onFailureMethod));
+}
+
+//update login user Message Flag to true on Cancel button click
+function updateCurrentUserMessageFlagSucceeded(sender, args) {
+	
+	var listItemInfo = '';
+
+	var listItemEnumerator = collListItems.getEnumerator();
+	while (listItemEnumerator.moveNext()) {
+		var oListItem = listItemEnumerator.get_current();
+		oListItem = this.list.getItemById(oListItem.get_id());
+		oListItem.set_item('MessageFlag', '1');		
+		oListItem.update();
+	
+		context.executeQueryAsync(Function.createDelegate(this, this.onSuccessMethod), Function.createDelegate(this, this.onFailureMethod));
+	}	    
+}
+
+//navigate to Email Subscription page
+function onSuccessMethod(sender, args)
+ { 
+	var destinLink = window.location.href.replace("SubscriberAlert","Email Subscription");			
+	window.location.replace(destinLink);
+
+ }
+              
+function onFailureMethod(sender, args) {
+	//alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+		alert('Error occured in User Subscription. Please contact Administrator.');
+}
+</script>
+<table class="SubscriptionAlertClass">
+	<tr>
+		 <td class="notificationtext">Subscribe to Product(s) to get update notification.</td>
+	</tr>
+	<tr>
+		 <td>
+			<input class="ms-ButtonHeightWidth" id="btn_Ok" type="button" onclick="javascript:return GoToEmailSub();" value="OK"/>
+			&nbsp;
+			<input class="ms-ButtonHeightWidth" id="btnCancel" type="button" onclick="javascript:return GoToHome();" value="Cancel"/>
+		 </td>
+	</tr>
+</table>
+
+ 

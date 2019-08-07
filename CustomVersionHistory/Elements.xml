@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Description="Show Version History"
+              Title="Show Version History"
+              Id="{0A05BC67-A9E6-4A9E-A217-F6949C8DA54C}"
+              Location="CommandUI.Ribbon.EditForm"
+              RegistrationId="0x0100D912861891B15547B967A2845DD84C38"
+              RegistrationType="ContentType"
+              Sequence="100"
+              Rights="ViewListItems"
+              xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CommandUIExtension xmlns="http://schemas.microsoft.com/sharepoint/">
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Templates._children">
+          <GroupTemplate Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VHTemplate">
+            <Layout Title="NewGroupInExistingTabOneLarge" LayoutTitle="NewGroupInExistingTabOneLarge">
+              <Section Alignment="Top" Type="OneRow">
+                <Row>
+                  <ControlRef DisplayMode="Large" TemplateAlias="Button1" />
+                </Row>
+              </Section>
+            </Layout>
+          </GroupTemplate>
+        </CommandUIDefinition>
+        <CommandUIDefinition Location="Ribbon.ListForm.Edit.Scaling._children">
+          <MaxSize
+            Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.MaxSize"
+            Sequence="15"
+            GroupId="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory"
+            Size="NewGroupInExistingTabOneLarge" />
+        </CommandUIDefinition>
+        <CommandUIDefinition Location="Ribbon.ListForm.Edit.Groups._children">
+          <Group Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory"
+               Sequence="15"
+               Description="Used to display Custom Version History"
+               Title="Manage"
+                               Template="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VHTemplate" >
+            <Controls Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.Controls">
+              <Button
+                Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.Button"
+                Sequence="1"
+                Command="ShowVersions"
+                Image16by16="/_layouts/$Resources:core,Language;/images/formatmap16x16.png" Image16by16Top="-48" Image16by16Left="-80"
+                Image32by32="/_layouts/$Resources:core,Language;/images/formatmap32x32.png" Image32by32Top="-64" Image32by32Left="-448"
+                Description="To display Version History."
+                LabelText="Version History"
+                TemplateAlias="Button1"/>
+            </Controls>
+          </Group>
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="ShowVersions" CommandAction="~site/_layouts/Versions.aspx?list={ListId}&amp;ID={ItemId}&amp;Source={Source}" />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+  <CustomAction Description="Show Version History"
+             Title="Show Version History"
+             Id="{0A05BC67-A9E6-4A9E-A217-F6949C8DA54C}"
+             Location="CommandUI.Ribbon.EditForm"
+             RegistrationId="0x0100BFEECCE9A53B8A438CD6912582D05FE4"
+             RegistrationType="ContentType"
+             Sequence="100"
+             Rights="ViewListItems"
+             xmlns="http://schemas.microsoft.com/sharepoint/">
+    <CommandUIExtension xmlns="http://schemas.microsoft.com/sharepoint/">
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.Templates._children">
+          <GroupTemplate Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VHTemplate">
+            <Layout Title="NewGroupInExistingTabOneLarge" LayoutTitle="NewGroupInExistingTabOneLarge">
+              <Section Alignment="Top" Type="OneRow">
+                <Row>
+                  <ControlRef DisplayMode="Large" TemplateAlias="Button1" />
+                </Row>
+              </Section>
+            </Layout>
+          </GroupTemplate>
+        </CommandUIDefinition>
+        <CommandUIDefinition Location="Ribbon.ListForm.Edit.Scaling._children">
+          <MaxSize
+            Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.MaxSize"
+            Sequence="15"
+            GroupId="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory"
+            Size="NewGroupInExistingTabOneLarge" />
+        </CommandUIDefinition>
+        <CommandUIDefinition Location="Ribbon.ListForm.Edit.Groups._children">
+          <Group Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory"
+               Sequence="15"
+               Description="Used to display Custom Version History"
+               Title="Manage"
+                               Template="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VHTemplate" >
+            <Controls Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.Controls">
+              <Button
+                Id="LCT.SharePoint.Ribbon.NewGroupInExistingTab.VersionHistory.Button"
+                Sequence="1"
+                Command="ShowVersions"
+                Image16by16="/_layouts/$Resources:core,Language;/images/formatmap16x16.png" Image16by16Top="-48" Image16by16Left="-80"
+                Image32by32="/_layouts/$Resources:core,Language;/images/formatmap32x32.png" Image32by32Top="-64" Image32by32Left="-448"
+                Description="To display Version History."
+                LabelText="Version History"
+                TemplateAlias="Button1"/>
+            </Controls>
+          </Group>
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="ShowVersions" CommandAction="~site/_layouts/Versions.aspx?list={ListId}&amp;ID={ItemId}&amp;Source={Source}" />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>
+</Elements>

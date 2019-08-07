@@ -1,0 +1,64 @@
+<style>
+/*--Remove add a new item or add a new document--*/
+
+.ms-addnew
+{
+	display:none;
+}
+
+
+#Ribbon\.ListItem\.New\.NewListItem-Large
+
+{
+display:none;
+
+}
+#Ribbon\.ListItem\.Manage\.EditProperties-Large
+
+
+{
+display:none;
+
+}
+
+#Ribbon\.ListItem\.Manage\.ViewProperties-Large
+
+{
+display:none;
+
+}
+#Ribbon\.ListItem\.Workflow\.ViewWorkflows-Large
+
+{
+display:none;
+
+}
+
+#Ribbon\.ListItem\.Manage\.Delete-Medium
+
+{
+display:none;
+
+}
+#Ribbon\.List\.CustomizeList-LargeMedium-1-0
+{
+display:none;
+
+}
+
+/*
+#Ribbon\.List\.ViewFormat\.Datasheet-Large
+
+{
+display:none;
+
+}
+*/
+/*--Remove Nintex Workflow 2010in the Welcome Menu--*/
+
+.ms-MenuUIUL LI[text='Nintex Workflow 2010'] 
+{
+ DISPLAY: none
+}
+
+</style>

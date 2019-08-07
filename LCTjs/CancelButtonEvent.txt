@@ -1,0 +1,31 @@
+<script language="javascript" src="/SiteAssets/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+
+//document.getElementById("s4-ribbonrow").style.display = "none";
+
+
+$(document).ready(function(){
+ 
+$('input[value=Cancel]').click(function()
+
+{
+
+var siteURL = window.location.protocol + "//" + window.location.host;
+
+//history.go(-1);
+
+location.href = siteURL;
+
+});
+
+
+});
+
+
+
+</script>
+
+
+

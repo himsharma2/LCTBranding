@@ -1,0 +1,20 @@
+<style>
+/*--Remove View Workflow History--*/
+
+
+#Ribbon\.ListForm\.Display\.Actions
+
+{
+display:none;
+
+}
+
+}
+/*--Remove Nintex Workflow 2010in the Welcome Menu--*/
+
+.ms-MenuUIUL LI[text='Nintex Workflow 2010'] 
+{
+ DISPLAY: none
+}
+
+</style>

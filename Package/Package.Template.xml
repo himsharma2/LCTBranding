@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/"> 
+ <Assemblies>   
+  <Assembly Location="Gilead.SP.LCT.Branding.dll" DeploymentTarget="GlobalAssemblyCache">     
+   <SafeControls>       
+   <SafeControl Assembly="Gilead.SP.LCT.Branding,Version=1.0.0.0, Culture=neutral, PublicKeyToken=64bcbff7218bcbf0" Namespace="Gilead.SP.LCT.Branding" TypeName="*" />     
+   </SafeControls>   
+  </Assembly> 
+ </Assemblies>
+ <FeatureManifests>
+    <FeatureManifest Location="Gilead.SP.LCT.Branding_LCTCustomBranding\Feature.xml" />
+ </FeatureManifests>
+</Solution>

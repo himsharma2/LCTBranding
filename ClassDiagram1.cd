@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gilead.SP.LCT.Branding.Features.LCTCustomBranding.LCTCustomBrandingEventReceiver">
+    <Position X="2.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Features\LCTCustomBranding\LCTCustomBranding.EventReceiver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gilead.SP.LCT.Branding.FeaturesHelper">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>FeaturesHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gilead.SP.LCT.Branding.ModuleFile">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAACAAA=</HashCode>
+      <FileName>FeaturesHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gilead.SP.LCT.Branding.ModuleInfo">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAACAAAAAAAAIA=</HashCode>
+      <FileName>FeaturesHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gilead.SP.LCT.Branding.StringStore">
+    <Position X="2.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAIAAAAQAAAAAACCCEAAAAAgAAAAAAAA=</HashCode>
+      <FileName>StringStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gilead.SP.LCT.ULSLogger">
+    <Position X="5.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAgACAAAAAAAAAAAAAQAIAAAAAAAA=</HashCode>
+      <FileName>ULSLogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

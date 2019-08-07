@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="LCTjs\" Type="ElementManifest" />
+    <ProjectItemFile Source="jquery-ui.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="LCTJs.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="moment.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="cancelcommentsval.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="CountriesProducts_EditForm.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="CountriesProducts_NewForm.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="CountriesProductsRequired.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="DisableInputTitle.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePageLayout.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePageLeftNavSlider.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.8.3.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.10.2.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-ui.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="ModifyViewBreadcrumb.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="QuarterlySubscriptionReminder.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="SearchWebpart.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="SubscriptionAlert.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="ToCheckROWUser.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\adminLinks.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\CCDSUpdateLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\ReportsLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\RowReportLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\RowSearchLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\RowViewLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\SearchLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\ViewLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\HARequestLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="HomePage\OtherUpdateLink.txt" Target="LCTjs\HomePage\" Type="ElementFile" />
+    <ProjectItemFile Source="CustomValidations.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.SPServices.NintexForm-0.7.2.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery.SPServices-0.7.2.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.6.4.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="sputility.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="CancelButtonEvent.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="DisableSaveTherapeuticJSRegion.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="DisableSaveTherapeuticJSRegionEditform.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HideRegionCountrySrc.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="ShowHideDependentOfJS.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="ShowHideDependentOfJSCPEditform.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="ShowHideProductsTA.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="jquery-1.11.2.min.js" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="unsubscribearrow.png" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="subscribearrow.png" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="selectall.png" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="removeall.png" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="gileadLogo.png" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="Hidesubscribed.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HideForm.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="DateFormatForCollapsedView.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HideInactiveTAs.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="HideTerminateStatus.txt" Target="LCTjs\" Type="ElementFile" />
+    <ProjectItemFile Source="EnableFiltering.txt" Target="LCTjs\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

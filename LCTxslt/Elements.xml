@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="LCTxslt" Url="SiteAssets">
+    <File Path="LCTxslt\LabelChangeIdDetails.xsl" Url="LabelChangeIdDetails.xsl" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+</Module>
+</Elements>

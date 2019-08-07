@@ -1,0 +1,332 @@
+﻿<script src="/SiteAssets/jquery.SPServices-0.7.2.min.js"></script>
+<script type="text/javascript">
+	function getPageName(url) {
+	    var index = url.lastIndexOf("/") + 1;
+	    var filenameWithExtension = url.substr(index);
+	    var filename = filenameWithExtension.split(".")[0]; // <-- added this line
+	    return filename;                                    // <-- added this line
+	}
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+
+	function ValidateForm(){
+		$("span[id$='ReminderErrMsg']").hide();
+		$("span[id$='ReminderErrMsg1']").hide();
+		$("span[id$='TitleErrMsg']").hide();
+		$("span[id$='TaskStatusErrMsg']").hide();
+	    $("span[id$='ReminderDuplicateMsg']").hide();
+		var ValidationFlag = true;
+		if($("input[title$='Reminder']").val().length == 0){
+		 var ErrorMessage = "<SPAN id='ReminderErrMsg' class=ms-formvalidation><SPAN role=alert>You must specify a value for this required field.</SPAN><BR></SPAN>";
+			if($("span[id$='ReminderErrMsg']").length != 0){
+				$("span[id$='ReminderErrMsg']").show();
+			}
+			else{
+				$("input[title$='Reminder']").closest('span').append(ErrorMessage);
+			}
+
+			ValidationFlag = false;
+		}
+		
+		if($("input[title$='Title']").val().length == 0){
+			var ErrorMessage = "<SPAN id='TitleErrMsg' class=ms-formvalidation><SPAN role=alert>You must specify a value for this required field.</SPAN><BR></SPAN>";
+			if($("span[id$='TitleErrMsg']").length != 0){
+				$("span[id$='TitleErrMsg']").show();
+			}
+			else{
+				$("input[title$='Title']").closest('span').append(ErrorMessage);
+			}
+			
+			ValidationFlag = false;
+		}
+		
+		if($("select[title$='Task Type']").val().length == 0){
+			var ErrorMessage = "<SPAN id='TaskStatusErrMsg' class=ms-formvalidation><SPAN role=alert>You must specify a value for this required field.</SPAN><BR></SPAN>";
+			if($("span[id$='TaskStatusErrMsg']").length != 0){
+				$("span[id$='TaskStatusErrMsg']").show();
+			}
+			else{
+				$("select[title$='Task Type']").closest('span').append(ErrorMessage);
+			}
+			
+			ValidationFlag = false;
+		}
+
+		if($("input[title$='Reminder']").val().length > 0){
+		 var ErrorMessage = "<SPAN id='ReminderErrMsg1' class=ms-formvalidation><SPAN role=alert>You must specify an integer value for field.</SPAN><BR></SPAN>";
+		 var numericReg = /^\d+([\,]*\d+)*([\.]\d+)*$/; 
+
+		 if(!numericReg.test($("input[title$='Reminder']").val())){
+		 	if($("span[id$='ReminderErrMsg1']").length != 0){
+				$("span[id$='ReminderErrMsg1']").show();
+			}
+			else{
+				$("input[title$='Reminder']").closest('span').append(ErrorMessage);
+			}
+			ValidationFlag = false;
+		 }
+
+
+		}
+		
+		return ValidationFlag ;
+	}
+	
+	function checkDuplicate(){
+		/*alert($("select[title$='Reason For Change']").val());
+	    alert($("select[title$='Task Type']").val());
+	    alert($("input[title$='Title']").val());*/
+	    $("span[id$='ReminderDuplicateMsg']").hide();
+	    var failureFlag = true;
+		var camlQueryStr = "<Query><Where><And><And><Eq><FieldRef Name='Title'/><Value Type='Text'>"+$("input[title$='Title']").val()+"</Value></Eq><Eq><FieldRef Name='ReasonForChange'/> <Value Type='Text'>"+$("select[title$='Reason For Change']").val()+"</Value></Eq></And><Eq><FieldRef Name='TaskType1'/> <Value Type='Text'>"+$("select[title$='Task Type']").val()+"</Value></Eq></And></Where></Query>"; 
+		//alert(camlQueryStr);
+		$().SPServices({
+			operation: "GetListItems",
+			async: false,
+			listName: "Manage Due Date Alerts",
+			CAMLQuery: camlQueryStr ,
+			completefunc:function (xData, Status) { 			
+				//alert(xData.responseText);	
+				var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");	
+				//alert(itemCount);
+		    	if(itemCount >= 1){
+		    	
+		    		var CurrentItemID = getParameterByName("ID");
+		    		$(xData.responseXML).SPFilterNode("z:row").each(function(){
+		    			var ItemID = $(this).attr("ows_ID");
+						// check if the save operation can be performed or not
+		    			if(CurrentItemID == ItemID){		    				
+		    				//returnvalue = true;
+		    			}
+		    			else{
+		    				//returnvalue = false;
+		    				ErrorMessage = "<SPAN id='ReminderDuplicateMsg' class=ms-formvalidation><SPAN role=alert>A record for the combination of Title, Task Type and Reason For Change are already present.</SPAN></SPAN>";
+							if($("span[id$='ReminderDuplicateMsg']").length != 0){
+								$("span[id$='ReminderDuplicateMsg']").show();
+							}
+							else{
+								$("input[title$='Reminder']").closest('span').append(ErrorMessage);
+							}
+							failureFlag = false;
+		    			}		    			
+		    		});
+
+		    	}
+			}
+		});
+		
+		return failureFlag ;
+
+	}
+	
+    
+    $(document).ready(function(){
+		//alert(getPageName($(location).attr('href')));
+		
+		var id = getParameterByName("ID");
+		var SourceURL = getParameterByName("Source");					
+		var PageName = getPageName($(location).attr('href'));
+		
+		if(PageName  == "NewForm"){
+
+			$("input[id$='IOSaveItem']").each(function(){
+				var saveEvent = $(this).attr("onclick");						
+				//remove sharepoint click handler
+				$(this).attr("onclick", "");
+				$(this).click(function(){
+					 if(ValidateForm()){
+						if(checkDuplicate()){		
+							 $().SPServices({
+						            operation: "UpdateListItems",
+						            async: false,
+						            batchCmd: "New",
+						            listName: "Manage Due Date Alerts",
+						            valuepairs: [["Title", $("input[title$='Title']").val()], ["ReasonForChange", $("select[title$='Reason For Change']").val()], ["TaskType1", $("select[title$='Task Type']").val()], ["Reminder", $("input[title$='Reminder']").val()]],
+						            completefunc: function (xData, Status) {
+										//var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");
+										if (Status == "success")  {
+											window.location.href =SourceURL ;
+										}
+						        }
+							});	
+						}			 											
+					 }
+				
+					/*if(checkDuplicate() && !ValidateForm()){
+						//call sharepoint click handler
+						eval(" ( function () {" + saveEvent + " })();");
+					}*/
+				});
+			});							
+			
+			$("#Ribbon.ListForm.Edit.Commit.Publish-Large").each(function(){
+				var saveEvent = $(this).attr("onclick");						
+				//remove sharepoint click handler
+				$(this).attr("onclick", "");
+				$(this).click(function(){
+      			if(ValidateForm()){
+				  if(checkDuplicate()){		
+					  $().SPServices({
+						            operation: "UpdateListItems",
+						            async: false,
+						            batchCmd: "New",
+						            listName: "Manage Due Date Alerts",
+						            valuepairs: [["Title", $("input[title$='Title']").val()], ["ReasonForChange", $("select[title$='Reason For Change']").val()], ["TaskType1", $("select[title$='Task Type']").val()], ["Reminder", $("input[title$='Reminder']").val()]],
+						            completefunc: function (xData, Status) {
+										//var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");
+										if (Status == "success")  {
+											window.location.href =SourceURL ;
+										}
+						        }
+						});	
+					  } 	
+					}  
+					//if(checkDuplicate() && !ValidateForm()){
+						//call sharepoint click handler
+						//eval(" ( function () {" + saveEvent + " })();");
+					//}
+				});
+		
+			
+			});
+
+
+		}
+		if(PageName  == "EditForm"){
+					//checkDuplicate();
+			    	//disable all fields
+					$("input[title$='Title']").attr("readonly", "readonly");
+				    $("input[title$='Title']").addClass("disableControl");
+				
+				    $("select[title$='Reason For Change']").addClass("disableControl");
+					$("select[title$='Reason For Change']").prop('disabled', true);
+				
+				    $("select[title$='Task Type']").addClass("disableControl");
+					$("select[title$='Task Type']").prop('disabled', true);
+				
+				    $("input[title$='Reminder']").attr("readonly", "readonly");
+				    $("input[title$='Reminder']").addClass("disableControl");
+					
+
+					$("input[id$='IOSaveItem']").each(function(){
+						var saveEvent = $(this).attr("onclick");
+						
+						//remove sharepoint click handler
+						$(this).attr("onclick", "");
+						$(this).click(function(){
+			     	
+					     /*alert($("input[title$='Reminder']").val());
+					     alert($("select[title$='Reason For Change']").val());
+					     alert($("select[title$='Task Type']").val());
+					     alert($("input[title$='Title']").val());	
+						 alert(ValidateForm());	*/
+							 if(ValidateForm()){
+								if(checkDuplicate()){					 	
+								     $().SPServices({
+								            operation: "UpdateListItems",
+								            async: false,
+								            batchCmd: "Update",
+								            listName: "Manage Due Date Alerts",
+								            ID: id,
+								            valuepairs: [["Title", $("input[title$='Title']").val()], ["ReasonForChange", $("select[title$='Reason For Change']").val()], ["TaskType1", $("select[title$='Task Type']").val()], ["Reminder", $("input[title$='Reminder']").val()]],
+								            completefunc: function (xData, Status) {
+												//var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");
+												if (Status == "success")  {
+													window.location.href =SourceURL ;
+												}
+								        }
+									});	
+								}					
+							}
+										     
+						});
+				
+						 
+					});
+					
+				$("#Ribbon.ListForm.Edit.Commit.Publish-Large").each(function(){
+					 var saveEvent = $(this).attr("onclick");
+			   		 if(ValidateForm()){
+			   		 	if(checkDuplicate()){
+							     $().SPServices({
+							            operation: "UpdateListItems",
+							            async: false,
+							            batchCmd: "Update",
+							            listName: "Manage Due Date Alerts",
+							            ID: id,
+							            valuepairs: [["Title", $("input[title$='Title']").val()], ["ReasonForChange", $("select[title$='Reason For Change']").val()], ["TaskType1", $("select[title$='Task Type']").val()], ["Reminder", $("input[title$='Reminder']").val()]],
+							            completefunc: function (xData, Status) {
+											//var itemCount = $(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount");
+											if (Status == "success")  {
+												window.location.href =SourceURL ;
+											}
+							        }
+								});	
+							}				
+					}
+			
+				});
+				
+			    $().SPServices({
+					operation: "GetGroupCollectionFromUser",
+					userLoginName: $().SPServices.SPGetCurrentUser(),
+					async: false,
+					completefunc: function (xData, Status) {
+						
+						var isEnable = false;
+					    //Check for LCTAdmin		    
+					    if ($(xData.responseXML).find("Group[Name='" + "LCTAdmin" + "']").length == 1){
+					    	//alert(xData.responseText);	
+		
+							$("input[title$='Reminder']").attr("readonly", false);
+							$("input[title$='Reminder']").removeClass("disableControl");
+							$("input[title$='Reminder']").focus();
+					    }
+			    
+					    if ($(xData.responseXML).find("Group[Name='" + "LCTSPAdmin" + "']").length == 1){
+					    	//alert(xData.responseText);	
+							isEnable = true;
+			    			$("input[title$='Title']").attr("readonly", false);
+						    $("input[title$='Title']").removeClass("disableControl");
+						
+						    $("select[title$='Reason For Change']").removeClass("disableControl");
+							$("select[title$='Reason For Change']").prop('disabled', false);
+						
+						    $("select[title$='Task Type']").removeClass("disableControl");
+							$("select[title$='Task Type']").prop('disabled', false);
+		
+		
+							$("input[title$='Reminder']").attr("readonly", false);
+							$("input[title$='Reminder']").removeClass("disableControl");
+							$("input[title$='Reminder']").focus();
+					    }
+						if(!isEnable)
+						{
+							hideEditOptions();
+						}
+					}
+		   });
+
+
+	}
+
+       	$("#ctl00_MSO_ContentDiv").show();
+    });
+
+	function hideEditOptions()
+	{
+		 //hide the ribboncontrol edit options.
+    $(".ms-cui-tabBody>li[id='Ribbon.ListForm.Edit.Clipboard']").hide();
+    $(".ms-cui-tt").click(function () {
+        if ($(this).attr("title") == "Edit") {
+            $(".ms-cui-tabBody>li[id='Ribbon.ListForm.Edit.Clipboard']").hide();
+        }
+    });
+	}
+
+</script>

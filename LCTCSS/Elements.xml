@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="LCTCSS" Url="SiteAssets">
+    <File Path="LCTCSS\jquery-ui.css" Url="LCTCSS/jquery-ui.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\LCT_Styles.css" Url="LCTCSS/LCT_Styles.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\NewProductList.css" Url="LCTCSS/NewProductList.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\HideAddnewItemCSS.css" Url="HideAddnewItemCSS.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\HideAddnewItemCSSDSEnabled.css" Url="HideAddnewItemCSSDSEnabled.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\HideEditViewWFDispform.css" Url="HideEditViewWFDispform.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+    <File Path="LCTCSS\HideViewHisDisFormCSS.css" Url="HideViewHisDisFormCSS.css" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+<File Path="LCTCSS\ExtendedQAR.CSS" Url="LCTCSS/ExtendedQAR.CSS" />
+<File Path="LCTCSS\QuarterlyPV.CSS" Url="LCTCSS/QuarterlyPV.CSS" />
+<File Path="LCTCSS\LCIDPage.css" Url="LCTCSS/LCIDPage.css" />
+</Module>
+</Elements>

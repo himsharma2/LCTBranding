@@ -1,0 +1,11 @@
+<script type="text/javascript">
+$( document ).ready(function() {
+		$('h3.ms-standardheader').each(function(){
+			var con = $(this).html();
+			var fnd = con.toString().trim().toLowerCase().indexOf('<nobr>country</nobr>');
+ 
+			if (fnd >= 0){
+				$(this).html('<nobr>Country <span class="ms-formvalidation" title="This is a required field."> *</span></nobr>');
+			}
+		});
+	});</script>

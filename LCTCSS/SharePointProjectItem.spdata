@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="LCTCSS\" Type="ElementManifest" />
+    <ProjectItemFile Source="jquery-ui.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="LCT_Styles.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="NewProductList.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="HideAddnewItemCSS.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="HideAddnewItemCSSDSEnabled.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="HideEditViewWFDispform.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="HideViewHisDisFormCSS.css" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="ExtendedQAR.CSS" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="QuarterlyPV.CSS" Target="LCTCSS\" Type="ElementFile" />
+    <ProjectItemFile Source="LCIDPage.css" Target="LCTCSS\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

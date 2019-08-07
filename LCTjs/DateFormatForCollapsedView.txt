@@ -1,0 +1,83 @@
+<script type="text/javascript" >
+function GetViewHeaderIndexes() {
+    while (IndexOfHeaders.length > 0) {
+        IndexOfHeaders.pop();
+    }
+    $("table.ms-listviewtable th div.ms-vh-div[FieldType='DateTime'] ").each(function () {
+        if ($(this).attr('name') != "DateTimeInitiated") {
+            IndexOfHeaders.push($(this).closest('th').index());
+        }
+    });
+}
+
+function showTimeFormatforGroupViews() {
+    if ($('tbody:visible[id^="tbod"]').length > 0) {
+        $('tbody:visible[id^="tbod"]').each(function () {
+            $(this).find('td nobr').each(function () {
+                var d = $(this).text();
+                if (d != '' && d != 'undefined') {
+                    if ($.inArray($(this).closest('td').index(), IndexOfHeaders) > -1) {
+                        var val = GetDateOnly(d);
+                        if (typeof val != 'undefined' && val != "") {
+                            if (val.indexOf(" ") > -1) {
+                                val = val.split(" ")[0];
+                            }
+                            $(this).html(val);
+                        }
+                    } else {
+                        var val = "";
+                        if (d.indexOf(" ") > -1) {
+                            val = FormatDateValue(d);
+                            if (typeof val != 'undefined' && val != "")
+                                $(this).html(val);
+                        } else {
+                            val = GetDateOnly(d);
+                            if (typeof val != 'undefined' && val != "")
+                                $(this).html(val);
+                        }
+                    }
+                }
+            });
+        });
+    }
+    else {
+        $('td nobr').each(function () {
+            var d = $(this).text();
+            if (d != '' && d != 'undefined') {
+                if ($.inArray($(this).closest('td').index(), IndexOfHeaders) > -1) {
+                    var val = GetDateOnly(d);
+                    if (typeof val != 'undefined' && val != "") {
+                        if (val.indexOf(" ") > -1) {
+                            val = val.split(" ")[0];
+                        }
+                        $(this).html(val);
+                    }
+                } else {
+                    var val = "";
+                    if (d.indexOf(" ") > -1) {
+                        val = FormatDateValue(d);
+                        if (typeof val != 'undefined' && val != "")
+                            $(this).html(val);
+                    } else {
+                        val = GetDateOnly(d);
+                        if (typeof val != 'undefined' && val != "")
+                            $(this).html(val);
+                    }
+                }
+            }
+        });
+    }
+}
+var IndexOfHeaders = [];
+$(Initiated)
+function Initiated()
+{
+	GetViewHeaderIndexes();
+	
+        showTimeFormatforGroupViews();
+        setInterval(showTimeFormatforGroupViews, 1000);
+        $("tr#group0").on('click change', function () {
+            setTimeout(showTimeFormatforGroupViews, 1000);
+        });
+}
+</script>

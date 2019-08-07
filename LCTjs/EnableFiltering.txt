@@ -1,0 +1,85 @@
+<script type = "text/javascript">
+$(document).ready(function () {
+	HideMarketColumn();
+    autoSortColumns();
+    setTimeout(autoSortColumns, 1000);
+    setTimeout(autoSortColumns, 2000);
+});
+function autoSortColumns() {
+	// if($("table[Summary='Label Update Workflows ']").length>0)
+	// {
+    // if ($("table[Summary='Label Update Workflows '] .ms-viewheadertr").find("a:contains('Market')").length > 0)
+        // $("table[Summary='Label Update Workflows '] .ms-viewheadertr").find("a:contains('Market')").click();
+	// }
+	
+// if($("table[Summary='Label Update Implementation Tasks ']").length >0)
+	// {
+    // if ($("table[Summary='Label Update Implementation Tasks '] .ms-viewheadertr").find("a:contains('Market')").length > 0)
+        // $("table[Summary='Label Update Implementation Tasks '] .ms-viewheadertr").find("a:contains('Market')").click();
+	// }
+// if($("table[Summary='Label Update Approval Tasks ']").length > 0)
+	// {
+    // if ($("table[Summary='Label Update Approval Tasks '] .ms-viewheadertr").find("a:contains('Market')").length > 0)
+        // $("table[Summary='Label Update Approval Tasks '] .ms-viewheadertr").find("a:contains('Market')").click();
+	// }
+
+    if ($(".ms-viewheadertr").find("a:contains('Market')").length > 0) {
+		for(var i =0;i<$(".ms-viewheadertr").find("a:contains('Market')").length;i++ )
+		{
+			$(".ms-viewheadertr").find("a:contains('Market')")[i].click();
+		}
+    }
+}
+function appl_init() {
+    var pagegReqManager = Sys.WebForms.PageRequestManager.getInstance();
+    pagegReqManager.add_endRequest(EndHandler);
+}
+
+function EndHandler() {
+   HideMarketColumn();
+    if ($(".ms-viewheadertr").length > 0)
+	{
+		
+	}
+}
+function HideMarketColumn() {
+	if($("table[Summary='Label Update Workflows ']").length>0)
+	{
+		$("table[Summary='Label Update Workflows ']").each(function () {
+		var i = $(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').index();
+		if (typeof(i) != 'undefined' && i > 0) {
+			$(this).find("tr:not(.ms-viewheadertr)").each(function () {
+				$(this).find("td:eq(" + i + ")").hide();
+			});
+			$(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').hide();
+		}
+	});
+	}
+	if($("table[Summary='Label Update Implementation Tasks ']").length >0)
+	{
+	$("table[Summary='Label Update Implementation Tasks ']").each(function () {
+		var i = $(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').index();
+		if (typeof(i) != 'undefined' && i > 0) {
+			$(this).find("tr:not(.ms-viewheadertr)").each(function () {
+				$(this).find("td:eq(" + i + ")").hide();
+			});
+			$(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').hide();
+		}
+	});
+	}
+	if($("table[Summary='Label Update Approval Tasks ']").length > 0)
+	{
+	$("table[Summary='Label Update Approval Tasks ']").each(function () {
+		var i = $(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').index();
+		if (typeof(i) != 'undefined' && i > 0) {
+			$(this).find("tr:not(.ms-viewheadertr)").each(function () {
+				$(this).find("td:eq(" + i + ")").hide();
+			});
+			$(this).find(".ms-viewheadertr .ms-vh2 table[Name='Market']").closest('th').hide();
+		}
+	});
+	}
+}
+
+Sys.Application.add_init(appl_init);
+</script>

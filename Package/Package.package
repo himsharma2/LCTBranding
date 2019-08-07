@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="92e0cc4b-4303-42fe-9af0-f127462ab3bb" solutionId="92e0cc4b-4303-42fe-9af0-f127462ab3bb" resetWebServer="false" sharePointProductVersion="16.0" name="Gilead.SP.LCT.Branding" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="4794fd2e-3c38-414e-ac93-839316ec1cc6" />
+    <featureReference itemId="9cf3d96d-659d-4bbc-9b66-de681740568a" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="e9f1a538-af50-463c-9743-bbc024e4642c" />
+  </projectItems>
+</package>

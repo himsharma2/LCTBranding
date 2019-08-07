@@ -1,0 +1,25 @@
+<script type = "text/javascript" >
+    $(document).ready(function () {
+        HideDropDownOptions();
+        setTimeout(HideDropDownOptions, 2000);
+        $(document).click(function () {
+            HideDropDownOptions();
+        });
+
+    });
+//Winwire code to hide the terminated and Select All Options of Task Status.
+function HideDropDownOptions() {
+    if ($("select[id$='_LCTTaskStatus'] option[value='Terminated']").length > 0)
+        $("select[id$='_LCTTaskStatus'] option[value='Terminated']").remove();
+
+    if ($("ul[id$='_LCTTaskStatus_listbox']>li:contains('Terminated')").length > 0)
+        $("ul[id$='_LCTTaskStatus_listbox']>li:contains('Terminated')").remove();
+
+    if ($("select[id$='_LCTTaskStatus'] option[value='Select All']").length > 0)
+        $("select[id$='_LCTTaskStatus'] option[value='Select All']").remove();
+
+    if ($("ul[id$='_LCTTaskStatus_listbox']>li:contains('Select All')").length > 0)
+        $("ul[id$='_LCTTaskStatus_listbox']>li:contains('Select All')").remove();
+}
+
+</script>

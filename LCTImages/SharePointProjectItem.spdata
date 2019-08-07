@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="LCTImages\" Type="ElementManifest" />
+    <ProjectItemFile Source="gilead.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="gilead_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="Left_nav_arrow.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="Left_nav_hide_icon.jpg" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="Left_nav_show_icon.jpg" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="mail_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="reports_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="search_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="top_nav_background.jpg" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="view_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="info_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="mand_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="admin.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="emailsubscription_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="home_icon.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="left_nav_link_arrow.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="product_dummy_control.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="reports.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="search.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="view.png" Target="LCTImages\" Type="ElementFile" />
+    <ProjectItemFile Source="bredcrumbarrow.jpg" Target="LCTImages\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

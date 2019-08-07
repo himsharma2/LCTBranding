@@ -1,0 +1,25 @@
+﻿<style type="text/css">
+.noindex.ms-wpContentDivSpace > TABLE > TBODY > TR > TD > TABLE > TR > TD {
+	PADDING-BOTTOM: 0px !important; MARGIN: 0px; PADDING-LEFT: 0px !important; PADDING-RIGHT: 0px !important; PADDING-TOP: 0px !important
+}
+.ms-vh2 .ms-menuimagecell img {
+display:none !important;
+}
+
+th > div {
+	padding-right:0px;
+	background:url('/_layouts/images/ecbarw.png') no-repeat right;
+	font-weight:bold;
+text-decoration:underline;
+color:#333333;
+width:inherit !important;
+margin-right:5px !important;
+
+}
+
+td.ms-vb {
+padding: 5px 0 4px 0 !important;
+}
+
+</style>
+

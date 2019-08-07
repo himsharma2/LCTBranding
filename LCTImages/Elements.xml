@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="LCTImages" Url="Style Library/Images/LCTImages">
+  <File Path="LCTImages\gilead.png" Url="gilead.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\gilead_icon.png" Url="gilead_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\Left_nav_arrow.png" Url="Left_nav_arrow.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\Left_nav_hide_icon.jpg" Url="Left_nav_hide_icon.jpg" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\Left_nav_show_icon.jpg" Url="Left_nav_show_icon.jpg" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\mail_icon.png" Url="mail_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\reports_icon.png" Url="reports_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\search_icon.png" Url="search_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\top_nav_background.jpg" Url="top_nav_background.jpg" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\view_icon.png" Url="view_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\info_icon.png" Url="info_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\mand_icon.png" Url="mand_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\admin.png" Url="admin.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\emailsubscription_icon.png" Url="emailsubscription_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\home_icon.png" Url="home_icon.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\left_nav_link_arrow.png" Url="left_nav_link_arrow.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\product_dummy_control.png" Url="product_dummy_control.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\reports.png" Url="reports.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\search.png" Url="search.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\view.png" Url="view.png" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTImages\bredcrumbarrow.jpg" Url="bredcrumbarrow.jpg" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+</Module>
+</Elements>

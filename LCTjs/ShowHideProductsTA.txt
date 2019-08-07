@@ -1,0 +1,110 @@
+<link href="/SiteAssets/LCTCSS/NewProductList.css" rel="stylesheet" type="text/css"/>
+<script language="javascript" src="/SiteAssets/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript" src="/SiteAssets/jquery.SPServices-0.7.2.min.js"></script>
+<script language="javascript" src="/SiteAssets/sputility.min.js"></script>
+<script>
+
+var ta = [];
+var taNew = [];
+var taOld;
+var result = [];
+var nonCommonElements= [];
+var counter=0;
+var LookupOnLoadFieldValues, LookupOnSaveFieldValues; 
+var therapeuticAreaSource;
+var therapeuticAreaSourceOnLoad;
+
+// Compare values of array 1 to array 2. If the values in array 1 is not present in array 2 then that value is pushed
+// to another array(result[]) 
+// Return value:- Array named "result"
+function CompareArray(array1,array2){
+    
+    var index= 1;
+    $.each(array1, function(){
+        var self = this.toString();    
+		index = index + 1;
+        
+        if($.inArray(self,array2) === -1){
+            result.push(self);
+        }
+    });
+
+    return result;
+}
+
+//  The function loopes through the values of TherapeuticArea which is stored in an array returned by the 
+// function CompareArray() and stored the values in feild 'Deactivated TherapeuticArea'
+function TAfunction()
+{
+	var diffVal=[];
+	LookupOnSaveFieldValues = SPUtility.GetSPField('TherapeuticArea').GetValue();
+	var TALogVal = SPUtility.GetSPField('Deactivated TherapeuticArea').GetValue();
+	therapeuticAreaSource= $.map($('select[title="TherapeuticArea possible values"] option'), function(e) { return e.title; });
+	
+	CompareArray(therapeuticAreaSource,therapeuticAreaSourceOnLoad)
+	CompareArray(therapeuticAreaSourceOnLoad,therapeuticAreaSource)
+
+	if(TALogVal.length>0)
+	{diffVal = TALogVal.split(',');}
+	for(var i =0 ; i < result.length; i ++)
+	{
+	
+			//item not found
+			if(($.inArray(result[i],diffVal) == -1) && ($.inArray(result[i],therapeuticAreaSourceOnLoad) == -1) )
+			{
+
+				diffVal.push(result[i]);
+			}
+			else
+			{
+
+				diffVal = jQuery.grep(diffVal, function(n) {
+					  return ( n != result[i] );
+					});
+			}
+											
+	}
+
+	SPUtility.GetSPField('Deactivated TherapeuticArea').SetValue(diffVal);
+			
+}
+
+$(document).ready(function(){
+
+	SPUtility.GetSPField('Deactivated TherapeuticArea').Hide();
+	LookupOnLoadFieldValues = SPUtility.GetSPField('TherapeuticArea').GetValue();	
+	therapeuticAreaSourceOnLoad= $.map($('select[title="TherapeuticArea possible values"] option'), function(e) { return e.title; });	
+	
+	//Purpose:- Triger the function TAfunction() which internally save the deactivated TA in the feild 'Deactivated TherapeuticArea' 
+	// This function will be triggered on click of save button on the bottom of the form
+	// <Success> Save the Record
+	
+	
+	$("input[id$='IOSaveItem']").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+		 $(this).attr("onclick", "");
+		 $(this).click(function(){			
+			TAfunction();
+			//call sharepoint click handler
+			eval(" ( function () {" + saveEvent + " })();");		     
+		 });
+	});
+	
+	//Purpose:- Triger the function TAfunction() which internally save the deactivated TA in the feild 'Deactivated TherapeuticArea' 
+	// This function will be triggered on click of save button on the Breadcrumb on top
+	// <Success> Save the Record
+	$("Ribbon.ListForm.Edit.Commit.Publish-Large").each(function(){
+		 var saveEvent = $(this).attr("onclick");
+		 //remove sharepoint click handler
+	     $(this).attr("onclick", "");
+		 $(this).click(function(){			
+			TAfunction();
+			//call sharepoint click handler
+			eval(" ( function () {" + saveEvent + " })();");		
+		});
+	});
+
+});
+
+</script>

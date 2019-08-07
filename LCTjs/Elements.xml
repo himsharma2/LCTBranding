@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+<Module Name="LCTjs"  Url="SiteAssets" >
+  <File Path="LCTjs\CancelButtonEvent.txt" Url="CancelButtonEvent.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\CustomValidations.js" Url="CustomValidations.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\DisableSaveTherapeuticJSRegion.txt" Url="DisableSaveTherapeuticJSRegion.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\DisableSaveTherapeuticJSRegionEditform.txt" Url="DisableSaveTherapeuticJSRegionEditform.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HideRegionCountrySrc.txt" Url="HideRegionCountrySrc.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery.min.js" Url="jquery.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery.SPServices.NintexForm-0.7.2.min.js" Url="jquery.SPServices.NintexForm-0.7.2.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery.SPServices-0.7.2.min.js" Url="jquery.SPServices-0.7.2.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery-1.6.4.min.js" Url="jquery-1.6.4.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\ShowHideDependentOfJS.txt" Url="ShowHideDependentOfJS.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\ShowHideDependentOfJSCPEditform.txt" Url="ShowHideDependentOfJSCPEditform.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\ShowHideProductsTA.txt" Url="ShowHideProductsTA.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\sputility.min.js" Url="sputility.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery-ui.js" Url="LCTScripts/jquery-ui.js" Type="GhostableInLibrary"  IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery-1.11.2.min.js" Url="LCTScripts/jquery-1.11.2.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTjs\LCTJs.js" Url="LCTScripts/LCTJs.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTjs\moment.js" Url="LCTScripts/moment.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTjs\cancelcommentsval.js" Url="LCTScripts/cancelcommentsval.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\CountriesProducts_EditForm.txt" Url="LCTScripts/CountriesProducts_EditForm.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\CountriesProducts_NewForm.txt" Url="LCTScripts/CountriesProducts_NewForm.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\CountriesProductsRequired.txt" Url="LCTScripts/CountriesProductsRequired.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\DisableInputTitle.txt" Url="LCTScripts/DisableInputTitle.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePageLayout.js" Url="LCTScripts/HomePageLayout.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePageLeftNavSlider.js" Url="LCTScripts/HomePageLeftNavSlider.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery-1.8.3.min.js" Url="LCTScripts/jquery-1.8.3.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+  <File Path="LCTjs\jquery-1.10.2.js" Url="LCTScripts/jquery-1.10.2.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\jquery-ui.min.js" Url="LCTScripts/jquery-ui.min.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\ModifyViewBreadcrumb.js" Url="LCTScripts/ModifyViewBreadcrumb.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\QuarterlySubscriptionReminder.js" Url="LCTScripts/QuarterlySubscriptionReminder.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\SearchWebpart.txt" Url="LCTScripts/SearchWebpart.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\SubscriptionAlert.txt" Url="LCTScripts/SubscriptionAlert.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\ToCheckROWUser.txt" Url="LCTScripts/ToCheckROWUser.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\adminLinks.txt" Url="LCTScripts/HomePage/adminLinks.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\CCDSUpdateLink.txt" Url="LCTScripts/HomePage/CCDSUpdateLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\ReportsLink.txt" Url="LCTScripts/HomePage/ReportsLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\RowReportLink.txt" Url="LCTScripts/HomePage/RowReportLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\RowSearchLink.txt" Url="LCTScripts/HomePage/RowSearchLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\RowViewLink.txt" Url="LCTScripts/HomePage/RowViewLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\SearchLink.txt" Url="LCTScripts/HomePage/SearchLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\ViewLink.txt" Url="LCTScripts/HomePage/ViewLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\HARequestLink.txt" Url="LCTScripts/HomePage/HARequestLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\HomePage\OtherUpdateLink.txt" Url="LCTScripts/HomePage/OtherUpdateLink.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\unsubscribearrow.png" Url="LogoImage/unsubscribearrow.png"  Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\subscribearrow.png" Url="LogoImage/subscribearrow.png"  Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\selectall.png" Url="LogoImage/selectall.png"  Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\removeall.png" Url="LogoImage/removeall.png"  Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\gileadLogo.png" Url="LogoImage/gileadLogo.png"  Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+  <File Path="LCTjs\Hidesubscribed.txt" Url="LCTScripts/Hidesubscribed.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false"/>
+<File Path="LCTjs\HideForm.txt" Url="LCTScripts/HideForm.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+<File Path="LCTjs\DateFormatForCollapsedView.txt" Url="LCTScripts/DateFormatForCollapsedView.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+<File Path="LCTjs\HideInactiveTAs.txt" Url="LCTjs/HideInactiveTAs.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+<File Path="LCTjs\HideTerminateStatus.txt" Url="LCTjs/HideTerminateStatus.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+<File Path="LCTjs\EnableFiltering.txt" Url="LCTScripts/EnableFiltering.txt" Type="GhostableInLibrary" IgnoreIfAlreadyExists="false" />
+</Module>
+</Elements>
